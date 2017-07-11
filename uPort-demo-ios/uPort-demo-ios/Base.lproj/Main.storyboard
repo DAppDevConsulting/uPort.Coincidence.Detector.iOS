@@ -127,11 +127,70 @@
                     </tabBar>
                     <connections>
                         <segue destination="HkW-Ll-aAf" kind="relationship" relationship="viewControllers" id="90K-Zg-vVY"/>
+                        <segue destination="EBI-ky-vk3" kind="relationship" relationship="viewControllers" id="bRn-4a-qwu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpW-Pu-8rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="-254"/>
+        </scene>
+        <!--Colors-->
+        <scene sceneID="cRN-zi-BBI">
+            <objects>
+                <viewController id="EBI-ky-vk3" customClass="SimpleBumpViewController" customModule="uPort_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QMH-Jc-Owv"/>
+                        <viewControllerLayoutGuide type="bottom" id="AEe-jU-HHX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9cJ-KD-fOH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yzt-fL-WuT">
+                                <rect key="frame" x="16" y="72" width="105.5" height="80.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXU-AE-tve">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NhP-LK-nfd">
+                                        <rect key="frame" x="0.0" y="50.5" width="105.5" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzY-KG-UDP">
+                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="30"/>
+                                                <state key="normal" title="Red"/>
+                                                <connections>
+                                                    <action selector="redTapped" destination="EBI-ky-vk3" eventType="touchUpInside" id="FCU-Z6-a4j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXe-mu-FAY">
+                                                <rect key="frame" x="61.5" y="0.0" width="44" height="30"/>
+                                                <state key="normal" title="Yellow"/>
+                                                <connections>
+                                                    <action selector="yellowTapped" destination="EBI-ky-vk3" eventType="touchUpInside" id="zxb-7f-4hS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yzt-fL-WuT" firstAttribute="top" secondItem="QMH-Jc-Owv" secondAttribute="bottom" constant="8" id="Nsq-Tq-FJf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yzt-fL-WuT" secondAttribute="leading" id="uyG-PO-kR2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Colors" id="VsR-0P-bsB"/>
+                    <connections>
+                        <outlet property="connectionsLabel" destination="bXU-AE-tve" id="4x0-ep-YnJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3q-yx-qj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="-29"/>
         </scene>
     </scenes>
 </document>
