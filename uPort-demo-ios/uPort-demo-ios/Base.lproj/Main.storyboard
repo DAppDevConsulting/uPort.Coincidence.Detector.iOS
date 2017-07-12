@@ -86,13 +86,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujQ-Zi-mBX">
                                 <rect key="frame" x="20" y="225.99999999999997" width="374" height="162.33333333333329"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K1q-kr-Z4S">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="K1q-kr-Z4S">
                                         <rect key="frame" x="95" y="66.333333333333314" width="184" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="d4p-lT-I1Y"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="distanceSliderValueChanged:" destination="fWS-9S-1lW" eventType="valueChanged" id="VmZ-lO-nZb"/>
+                                        </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIq-XE-6MN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIq-XE-6MN">
                                         <rect key="frame" x="157" y="101.33333333333331" width="60" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="HLC-tN-EHE"/>
@@ -185,6 +188,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="tlO-dp-YDI"/>
+                    <connections>
+                        <outlet property="connectionTypeTableView" destination="sCx-1A-6HI" id="RsU-TC-owp"/>
+                        <outlet property="distanceLabel" destination="aIq-XE-6MN" id="gdH-G0-FDm"/>
+                        <outlet property="receiveModeSwitch" destination="GAB-yw-AlC" id="Z57-7Y-TAt"/>
+                        <outlet property="selectedConnectionTypeLabel" destination="ETF-Sc-IXn" id="W1R-99-o3a"/>
+                        <outlet property="transitModeSwitch" destination="x8P-YB-FWz" id="9Z1-Ep-cb4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NZ-dt-jOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

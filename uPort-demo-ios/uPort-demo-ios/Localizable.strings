@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  uPort-demo-ios
+
+  Created by Oksana Hanailiuk on 7/12/17.
+  Copyright © 2017 1. All rights reserved.
+*/
+
+"ByTitle" = "by";
+"OkTitle" = "OK";
+"MeasureTitle" = "m";
+
+"BumpTitle" = "physical bump";
+"HandTitle" = "hand dance";
+"ImageRecognitionTitle" = "image recognision";
