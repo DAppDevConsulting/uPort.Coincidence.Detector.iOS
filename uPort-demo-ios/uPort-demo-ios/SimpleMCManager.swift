@@ -49,6 +49,14 @@ class SimpleMCManager: NSObject {
         self.serviceBrowser.startBrowsingForPeers()
     }
     
+    func lookingForPeers() {
+        self.serviceAdvertiser.delegate = self
+        self.serviceAdvertiser.startAdvertisingPeer()
+        
+        self.serviceBrowser.delegate = self
+        self.serviceBrowser.startBrowsingForPeers()
+    }
+    
     func send(colorName : String) {
         NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
         

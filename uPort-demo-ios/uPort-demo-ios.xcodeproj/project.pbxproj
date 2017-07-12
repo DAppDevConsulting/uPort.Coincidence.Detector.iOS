@@ -15,6 +15,8 @@
 		9425C0CC1F13A21D00A3AF02 /* uPort_demo_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0CB1F13A21D00A3AF02 /* uPort_demo_iosTests.swift */; };
 		9425C0D71F13A21D00A3AF02 /* uPort_demo_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0D61F13A21D00A3AF02 /* uPort_demo_iosUITests.swift */; };
 		9425C0E71F13C98B00A3AF02 /* ConnectiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0E61F13C98B00A3AF02 /* ConnectiosViewController.swift */; };
+		94B366EC1F1600A500E59892 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366EB1F1600A500E59892 /* MainViewController.swift */; };
+		94B366EE1F16196C00E59892 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366ED1F16196C00E59892 /* MPCManager.swift */; };
 		94CC87B41F14A9690010211F /* MCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC87B31F14A9690010211F /* MCManager.swift */; };
 		94CC87B61F14B5180010211F /* ConnectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC87B51F14B5180010211F /* ConnectionsDataSource.swift */; };
 		94D1DB581F14D3510081199D /* SimpleMCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1DB571F14D3510081199D /* SimpleMCManager.swift */; };
@@ -53,6 +55,8 @@
 		9425C0D61F13A21D00A3AF02 /* uPort_demo_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uPort_demo_iosUITests.swift; sourceTree = "<group>"; };
 		9425C0D81F13A21D00A3AF02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9425C0E61F13C98B00A3AF02 /* ConnectiosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectiosViewController.swift; sourceTree = "<group>"; };
+		94B366EB1F1600A500E59892 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
+		94B366ED1F16196C00E59892 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPCManager.swift; path = ../MPCManager.swift; sourceTree = "<group>"; };
 		94CC87B31F14A9690010211F /* MCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCManager.swift; sourceTree = "<group>"; };
 		94CC87B51F14B5180010211F /* ConnectionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDataSource.swift; sourceTree = "<group>"; };
 		94D1DB571F14D3510081199D /* SimpleMCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMCManager.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		9425C0B51F13A21C00A3AF02 /* uPort-demo-ios */ = {
 			isa = PBXGroup;
 			children = (
+				94B366F01F163D0A00E59892 /* Utils */,
+				94B366F11F163D0A00E59892 /* ViewControlles */,
 				94D1DB561F14D3280081199D /* SimpleConnections */,
 				94D1DB541F14D1F40081199D /* PeerConnectios */,
 				9425C0B61F13A21C00A3AF02 /* AppDelegate.swift */,
@@ -135,6 +141,22 @@
 				9425C0D81F13A21D00A3AF02 /* Info.plist */,
 			);
 			path = "uPort-demo-iosUITests";
+			sourceTree = "<group>";
+		};
+		94B366F01F163D0A00E59892 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				94B366ED1F16196C00E59892 /* MPCManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		94B366F11F163D0A00E59892 /* ViewControlles */ = {
+			isa = PBXGroup;
+			children = (
+				94B366EB1F1600A500E59892 /* MainViewController.swift */,
+			);
+			path = ViewControlles;
 			sourceTree = "<group>";
 		};
 		94D1DB541F14D1F40081199D /* PeerConnectios */ = {
@@ -298,6 +320,8 @@
 				94CC87B61F14B5180010211F /* ConnectionsDataSource.swift in Sources */,
 				94D1DB5A1F14D4070081199D /* SimpleBumpViewController.swift in Sources */,
 				94D1DB581F14D3510081199D /* SimpleMCManager.swift in Sources */,
+				94B366EE1F16196C00E59892 /* MPCManager.swift in Sources */,
+				94B366EC1F1600A500E59892 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

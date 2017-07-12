@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import CoreMotion
 
 class SimpleBumpViewController: UIViewController {
     
     @IBOutlet weak var connectionsLabel: UILabel!
     
     let colorService = SimpleMCManager()
+    let motionManager = CMMotionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorService.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        colorService.lookingForPeers()
+    }
+
     
     @IBAction func redTapped() {
         self.change(color: .red)
@@ -39,6 +47,20 @@ class SimpleBumpViewController: UIViewController {
 extension SimpleBumpViewController : SimpleMCManagerDelegate {
     
     func connectedDevicesChanged(manager: SimpleMCManager, connectedDevices: [String]) {
+        
+        if motionManager.isDeviceMotionAvailable {
+            motionManager.deviceMotionUpdateInterval = 0.02
+            motionManager.startDeviceMotionUpdates(to: .main) {
+                [weak self] (data: CMDeviceMotion?, error: Error?) in
+                if let x = data?.userAcceleration.x {                
+                    if x < -2 {
+                        self?.yellowTapped()
+                    //self?.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }
+        
         OperationQueue.main.addOperation {
             self.connectionsLabel.text = "Connections: \(connectedDevices)"
         }
