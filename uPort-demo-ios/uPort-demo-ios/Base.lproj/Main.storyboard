@@ -165,8 +165,11 @@
                                     <constraint firstAttribute="width" constant="80" id="47m-dh-657"/>
                                     <constraint firstAttribute="height" constant="35" id="Y0t-v6-nX6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonClicked:" destination="fWS-9S-1lW" eventType="touchUpInside" id="Xgg-xZ-sPw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

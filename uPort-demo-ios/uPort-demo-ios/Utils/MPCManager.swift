@@ -10,10 +10,9 @@ import UIKit
 import MultipeerConnectivity
 
 protocol MPCManagerDelegate {
-    func manager(_ manager: MPCManager, foundPeer peerID: MCPeerID)
     func manager(_ manager: MPCManager, lostPeer peerID: MCPeerID)
-    func manager(_ manager: MPCManager, invitationWasReceived fromPeer: String)
     func manager(_ manager: MPCManager, connectedWithPeer peerID: MCPeerID)
+    func manager(_ manager: MPCManager, dataReceive data: [String: String])
 }
 
 class MPCManager: NSObject {
@@ -39,6 +38,29 @@ class MPCManager: NSObject {
         advertiser = MCNearbyServiceAdvertiser(peer: unwrappedPeer, discoveryInfo: nil, serviceType: serviceType)
         advertiser?.delegate = self
     }
+    
+    func lookingForPeers() {
+        browser?.startBrowsingForPeers()
+        advertiser?.startAdvertisingPeer()
+    }
+
+    func send(text : String) {
+        guard let connectedPeersCount = session?.connectedPeers.count, let connectedPeers = session?.connectedPeers, let currentUnwrappedPeer = peer else { return }
+        NSLog("%@", "sendText: \(text) to \(connectedPeersCount) peers")
+        
+        if connectedPeersCount > 0 {
+            do {
+                try self.session?.send(text.data(using: .utf8)!, toPeers: connectedPeers, with: .reliable)
+            }
+            catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        } else {
+            
+            delegate?.manager(self, lostPeer: currentUnwrappedPeer)
+        }
+        
+    }
 
 }
 
@@ -58,8 +80,9 @@ extension MPCManager: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        let dictionary: [String: AnyObject] = ["data": data as AnyObject, "fromPeer": peerID]
-        //TODO: receive data
+        guard let text = String(data: data, encoding: .utf8) else { return }
+        let data = ["data": text, "fromPeer": peerID.displayName]
+        self.delegate?.manager(self, dataReceive: data)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -91,7 +114,6 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         foundPeers.append(peerID)
         browser.invitePeer(peerID, to: self.session!, withContext: nil, timeout: 10)
-        delegate?.manager(self, foundPeer: peerID)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
@@ -108,6 +130,5 @@ extension MPCManager: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         invitationHandler(true, self.session)
-        delegate?.manager(self, invitationWasReceived: peerID.displayName)
     }
 }

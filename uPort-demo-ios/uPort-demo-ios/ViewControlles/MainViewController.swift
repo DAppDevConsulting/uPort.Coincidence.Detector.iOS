@@ -29,8 +29,7 @@ class MainViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         setupTableView()
         appDelegate.mpcManager.delegate = self
-        appDelegate.mpcManager.browser?.startBrowsingForPeers()
-        appDelegate.mpcManager.advertiser?.startAdvertisingPeer()
+        appDelegate.mpcManager.lookingForPeers()
     }
 
     func setupTableView() {
@@ -52,6 +51,9 @@ class MainViewController: UIViewController {
         let value = Int(sender.value)
         distanceLabel.text = "\(value) \(Texts.measureTitle)"
     }
+    @IBAction func startButtonClicked(_ sender: Any) {
+        appDelegate.mpcManager.send(text: "Test string")
+    }
 }
 
 extension MainViewController: MPCManagerDelegate {
@@ -59,16 +61,14 @@ extension MainViewController: MPCManagerDelegate {
     func manager(_ manager: MPCManager, connectedWithPeer peerID: MCPeerID) {
         ShowBaseAlertCommand().execute(with: "Connected with \(peerID.displayName).")
     }
-    
-    func manager(_ manager: MPCManager, invitationWasReceived fromPeer: String) {
-    }
-    
+
     func manager(_ manager: MPCManager, lostPeer peerID: MCPeerID) {
         ShowBaseAlertCommand().execute(with: "Lost \(peerID.displayName) peer.")
     }
     
-    func manager(_ manager: MPCManager, foundPeer peerID: MCPeerID) {
-       
+    func manager(_ manager: MPCManager, dataReceive data: [String: String]) {
+        guard let dataReceived = data["data"], let peerName = data["fromPeer"] else { return }
+        ShowBaseAlertCommand().execute(with: "Data received \(dataReceived) from \(peerName)")
     }
 }
 
