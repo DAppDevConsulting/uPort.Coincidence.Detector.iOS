@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import CoreMotion
 
 class MainViewController: UIViewController {
     
@@ -24,26 +25,33 @@ class MainViewController: UIViewController {
         return source
     }()
     
+    let motionManager = CDMotionManager()
+    var currentConnectionType: ConnectionsDescriptor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
         setupTableView()
+        motionManager.delegate = self
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.lookingForPeers()
     }
 
     func setupTableView() {
-        dataSource.append([Texts.bumpTitle, Texts.handDanceTitle, Texts.imageRecognitionTitle])
+        dataSource.append(ConnectionsDescriptor.array)
         connectionTypeTableView.dataSource = dataSource
         connectionTypeTableView.delegate = self
         connectionTypeTableView.register(UITableViewCell.self, forCellReuseIdentifier: dataSource.tableViewCellID)
         let indexPath = IndexPath(item: 0, section: 0)
         connectionTypeTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        setConnectionTypeLabel(with: dataSource.item(at: 0))
+        currentConnectionType = dataSource.item(at: 0)
+        setConnectionTypeLabel(with: currentConnectionType.title())
     }
     
-    func setConnectionTypeLabel(with text: String) {
-        selectedConnectionTypeLabel.text = "\(Texts.byTitle) \(text)"
+    func setConnectionTypeLabel(with text: String?) {
+        if let unwrappedText = text {
+            selectedConnectionTypeLabel.text = "\(Texts.byTitle) \(unwrappedText)"
+        }
     }
     
     //MARK: - actions
@@ -80,8 +88,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
-        if transitModeSwitch.isOn {
-            appDelegate.mpcManager.send(text: "Test string")
+        if currentConnectionType == .bump {
+            motionManager.bump()
         }
     }
 }
@@ -106,6 +114,16 @@ extension MainViewController: MPCManagerDelegate {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        setConnectionTypeLabel(with: dataSource.item(at: indexPath.row))
+        currentConnectionType = dataSource.item(at: indexPath.row)
+        setConnectionTypeLabel(with: dataSource.item(at: indexPath.row).title())
+    }
+}
+
+extension MainViewController: CDMotionManagerDelegate {
+    func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometrData: CMAcceleration) {
+        if transitModeSwitch.isOn {
+            print(accelerometrData)
+            appDelegate.mpcManager.send(text: "TEST BUMP STRING")
+        }
     }
 }

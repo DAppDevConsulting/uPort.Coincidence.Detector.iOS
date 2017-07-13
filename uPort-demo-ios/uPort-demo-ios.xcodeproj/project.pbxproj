@@ -14,6 +14,8 @@
 		9425C0C11F13A21D00A3AF02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9425C0BF1F13A21D00A3AF02 /* LaunchScreen.storyboard */; };
 		9425C0CC1F13A21D00A3AF02 /* uPort_demo_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0CB1F13A21D00A3AF02 /* uPort_demo_iosTests.swift */; };
 		9425C0D71F13A21D00A3AF02 /* uPort_demo_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0D61F13A21D00A3AF02 /* uPort_demo_iosUITests.swift */; };
+		948120031F1785B6000410DB /* CDMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120021F1785B6000410DB /* CDMotionManager.swift */; };
+		948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120051F178CE8000410DB /* ConnectionsDescriptor.swift */; };
 		94B366F51F1652A000E59892 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94B366F41F1652A000E59892 /* Localizable.strings */; };
 		94B366F71F1652F200E59892 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F61F1652F200E59892 /* Texts.swift */; };
 		94B366FA1F16541600E59892 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F91F16541600E59892 /* String+Localized.swift */; };
@@ -55,6 +57,8 @@
 		9425C0D21F13A21D00A3AF02 /* uPort-demo-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "uPort-demo-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425C0D61F13A21D00A3AF02 /* uPort_demo_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uPort_demo_iosUITests.swift; sourceTree = "<group>"; };
 		9425C0D81F13A21D00A3AF02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		948120021F1785B6000410DB /* CDMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMotionManager.swift; sourceTree = "<group>"; };
+		948120051F178CE8000410DB /* ConnectionsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDescriptor.swift; sourceTree = "<group>"; };
 		94B366F41F1652A000E59892 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		94B366F61F1652F200E59892 /* Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		94B366F91F16541600E59892 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		9425C0B51F13A21C00A3AF02 /* uPort-demo-ios */ = {
 			isa = PBXGroup;
 			children = (
+				948120041F178CB1000410DB /* Helpers */,
 				94B367021F16616D00E59892 /* Commands */,
 				94B366F81F1653EB00E59892 /* Extensions */,
 				94B366F01F163D0A00E59892 /* Utils */,
@@ -146,11 +151,20 @@
 			path = "uPort-demo-iosUITests";
 			sourceTree = "<group>";
 		};
+		948120041F178CB1000410DB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				948120051F178CE8000410DB /* ConnectionsDescriptor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		94B366F01F163D0A00E59892 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				94B366FD1F16546D00E59892 /* MPCManager.swift */,
 				94B366F61F1652F200E59892 /* Texts.swift */,
+				948120021F1785B6000410DB /* CDMotionManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -327,6 +341,7 @@
 			files = (
 				94B366FC1F16545F00E59892 /* MainViewController.swift in Sources */,
 				94B367041F16618000E59892 /* ICommand.swift in Sources */,
+				948120031F1785B6000410DB /* CDMotionManager.swift in Sources */,
 				94B366F71F1652F200E59892 /* Texts.swift in Sources */,
 				9425C0B91F13A21C00A3AF02 /* ViewController.swift in Sources */,
 				94B367011F165C4C00E59892 /* ConnectionsTypeDataSource.swift in Sources */,
@@ -334,6 +349,7 @@
 				94B366FE1F16546D00E59892 /* MPCManager.swift in Sources */,
 				94B366FA1F16541600E59892 /* String+Localized.swift in Sources */,
 				94B367061F1661B600E59892 /* ShowBaseAlertCommand.swift in Sources */,
+				948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

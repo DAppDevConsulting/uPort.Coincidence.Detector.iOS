@@ -9,25 +9,25 @@
 import UIKit
 
 protocol ConnectionsDataSourceDelegate: class {
-    func source( _ source: ConnectionsTypeDataSource, didRecieveNew data: [String])
+    func source( _ source: ConnectionsTypeDataSource, didRecieveNew data: [ConnectionsDescriptor])
 }
 
 class ConnectionsTypeDataSource: NSObject {
     let tableViewCellID = "DefaultCell"
     fileprivate weak var delegate: ConnectionsDataSourceDelegate?
-    fileprivate var connections = [String]()
+    fileprivate var connections = [ConnectionsDescriptor]()
     
     init(with callbackResponder: ConnectionsDataSourceDelegate?) {
         super.init()
         delegate = callbackResponder
     }
     
-    func append(_ array: [String]) {
+    func append(_ array: [ConnectionsDescriptor]) {
         connections.append(contentsOf: array)
         delegate?.source(self, didRecieveNew: connections)
     }
     
-    func remove(item: String) {
+    func remove(item: ConnectionsDescriptor) {
         if let index = connections.index(of: item) {
             connections.remove(at: index)
         }
@@ -43,7 +43,7 @@ class ConnectionsTypeDataSource: NSObject {
         return connections.count
     }
     
-    func item(at index: Int) -> String {
+    func item(at index: Int) -> ConnectionsDescriptor {
         return connections[index]
     }
 }
@@ -52,7 +52,7 @@ extension ConnectionsTypeDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellID, for: indexPath)
-        cell.textLabel?.text = connections[indexPath.row]
+        cell.textLabel?.text = connections[indexPath.row].title()
         return cell
     }
     
