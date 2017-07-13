@@ -120,10 +120,9 @@ extension MainViewController: UITableViewDelegate {
 }
 
 extension MainViewController: CDMotionManagerDelegate {
-    func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometrData: CMAcceleration) {
+    func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
         if transitModeSwitch.isOn {
-            print(accelerometrData)
-            appDelegate.mpcManager.send(text: "TEST BUMP STRING")
+            appDelegate.mpcManager.send(text: "TEST BUMP STRING at \(Date.convert(date))")
         }
     }
 }

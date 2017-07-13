@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 protocol CDMotionManagerDelegate {
-    func manager(_ manager: CDMotionManager, bumpDetectedWith  accelerometerData: CMAcceleration)
+    func manager(_ manager: CDMotionManager, bumpDetectedWith  accelerometerData: CMAcceleration, andDateTime date: Date)
 }
 
 class CDMotionManager: NSObject {
@@ -23,14 +23,8 @@ class CDMotionManager: NSObject {
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let x = data?.userAcceleration.x,
                     x < -2.5 {
-                    //TODO: - calculate date time
-                    
-                   /* let date = Date()
-                    let calendar = Calendar.current
-                    let hour = calendar.component(.hour, from: date)
-                    let minutes = calendar.component(.minute, from: date)*/
                     guard let unwrappedSelf = self, let accelerometrUnwrappedData = data?.userAcceleration else { return }
-                    self?.delegate?.manager(unwrappedSelf, bumpDetectedWith: accelerometrUnwrappedData)
+                    self?.delegate?.manager(unwrappedSelf, bumpDetectedWith: accelerometrUnwrappedData, andDateTime: Date())
                     self?.manager.stopDeviceMotionUpdates()
                 }
             }
