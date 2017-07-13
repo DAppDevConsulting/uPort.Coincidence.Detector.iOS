@@ -47,12 +47,42 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - actions
+    func showConfirmationAlert(_ switchMode: UISwitch, message text: String) {
+        if !switchMode.isOn {
+            let alert = UIAlertController(title: "", message: text, preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction: UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                switchMode.isOn = false
+            }
+            
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                switchMode.isOn = true
+            }
+            
+            alert.addAction(confirmAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func distanceSliderValueChanged(_ sender: UISlider) {
         let value = Int(sender.value)
         distanceLabel.text = "\(value) \(Texts.measureTitle)"
     }
+    
+    @IBAction func recieveModeToggle(_ sender: UISwitch) {
+        showConfirmationAlert(sender, message: "Are you sure you don't want to receive data?")
+    }
+
+    @IBAction func transmitModeToggle(_ sender: UISwitch) {
+        showConfirmationAlert(sender, message: "Are you sure you don't want to transmit data?")
+    }
+    
     @IBAction func startButtonClicked(_ sender: Any) {
-        appDelegate.mpcManager.send(text: "Test string")
+        if transitModeSwitch.isOn {
+            appDelegate.mpcManager.send(text: "Test string")
+        }
     }
 }
 
@@ -67,8 +97,10 @@ extension MainViewController: MPCManagerDelegate {
     }
     
     func manager(_ manager: MPCManager, dataReceive data: [String: String]) {
-        guard let dataReceived = data["data"], let peerName = data["fromPeer"] else { return }
-        ShowBaseAlertCommand().execute(with: "Data received \(dataReceived) from \(peerName)")
+        if receiveModeSwitch.isOn {
+            guard let dataReceived = data["data"], let peerName = data["fromPeer"] else { return }
+            ShowBaseAlertCommand().execute(with: "Data received \(dataReceived) from \(peerName)")
+        }
     }
 }
 

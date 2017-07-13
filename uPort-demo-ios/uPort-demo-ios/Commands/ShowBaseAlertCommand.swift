@@ -17,6 +17,11 @@ class ShowBaseAlertCommand: ICommand {
         
         alert.addAction(acceptAction)
         guard let rootVC = appDelegate?.window??.rootViewController else { return }
-        rootVC.present(alert, animated: true, completion: nil)
+        OperationQueue.main.addOperation { () -> Void in
+            if (rootVC.presentedViewController != nil) {
+                return
+            }
+            rootVC.present(alert, animated: true, completion: nil)
+        }
     }
 }

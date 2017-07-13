@@ -45,7 +45,7 @@ class MPCManager: NSObject {
     }
 
     func send(text : String) {
-        guard let connectedPeersCount = session?.connectedPeers.count, let connectedPeers = session?.connectedPeers, let currentUnwrappedPeer = peer else { return }
+        guard let connectedPeersCount = session?.connectedPeers.count, let connectedPeers = session?.connectedPeers else { return }
         NSLog("%@", "sendText: \(text) to \(connectedPeersCount) peers")
         
         if connectedPeersCount > 0 {
@@ -56,8 +56,7 @@ class MPCManager: NSObject {
                 NSLog("%@", "Error for sending: \(error)")
             }
         } else {
-            
-            delegate?.manager(self, lostPeer: currentUnwrappedPeer)
+            ShowBaseAlertCommand().execute(with: "There are no connected peers")
         }
         
     }
@@ -74,6 +73,7 @@ extension MPCManager: MCSessionDelegate {
             case MCSessionState.connecting:
                 NSLog("%@", "Connecting to session: \(session)")
             default:
+                ShowBaseAlertCommand().execute(with: "Did not connect to session")
                 NSLog("%@", "Did not connect to session: \(session)")
         }
         
