@@ -22,7 +22,7 @@
 		94B366FA1F16541600E59892 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F91F16541600E59892 /* String+Localized.swift */; };
 		94B366FC1F16545F00E59892 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366FB1F16545F00E59892 /* MainViewController.swift */; };
 		94B366FE1F16546D00E59892 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366FD1F16546D00E59892 /* MPCManager.swift */; };
-		94B367011F165C4C00E59892 /* ConnectionsTypeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B367001F165C4C00E59892 /* ConnectionsTypeDataSource.swift */; };
+		94B367011F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B367001F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift */; };
 		94B367041F16618000E59892 /* ICommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B367031F16618000E59892 /* ICommand.swift */; };
 		94B367061F1661B600E59892 /* ShowBaseAlertCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B367051F1661B600E59892 /* ShowBaseAlertCommand.swift */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,7 @@
 		94B366F91F16541600E59892 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		94B366FB1F16545F00E59892 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		94B366FD1F16546D00E59892 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
-		94B367001F165C4C00E59892 /* ConnectionsTypeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsTypeDataSource.swift; sourceTree = "<group>"; };
+		94B367001F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsTypePickerConfigurator.swift; sourceTree = "<group>"; };
 		94B367031F16618000E59892 /* ICommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICommand.swift; sourceTree = "<group>"; };
 		94B367051F1661B600E59892 /* ShowBaseAlertCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBaseAlertCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,7 +192,7 @@
 		94B366FF1F165C4C00E59892 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				94B367001F165C4C00E59892 /* ConnectionsTypeDataSource.swift */,
+				94B367001F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				948120031F1785B6000410DB /* CDMotionManager.swift in Sources */,
 				94B366F71F1652F200E59892 /* Texts.swift in Sources */,
 				9425C0B91F13A21C00A3AF02 /* ViewController.swift in Sources */,
-				94B367011F165C4C00E59892 /* ConnectionsTypeDataSource.swift in Sources */,
+				94B367011F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift in Sources */,
 				9425C0B71F13A21C00A3AF02 /* AppDelegate.swift in Sources */,
 				94B366FE1F16546D00E59892 /* MPCManager.swift in Sources */,
 				94B366FA1F16541600E59892 /* String+Localized.swift in Sources */,

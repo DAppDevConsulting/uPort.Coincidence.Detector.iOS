@@ -12,7 +12,7 @@ import CoreMotion
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var connectionTypeTableView: UITableView!
+    @IBOutlet weak var connectionTypePickerView: UIPickerView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var selectedConnectionTypeLabel: UILabel!
     @IBOutlet weak var transitModeSwitch: UISwitch!
@@ -20,9 +20,8 @@ class MainViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    lazy var dataSource: ConnectionsTypeDataSource = {
-        let source = ConnectionsTypeDataSource(with: nil)
-        return source
+    lazy var pickerConfigurator: ConnectionsTypePickerConfigurator = {
+        return ConnectionsTypePickerConfigurator(with: self)
     }()
     
     let motionManager = CDMotionManager()
@@ -30,21 +29,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPickerView()
         automaticallyAdjustsScrollViewInsets = false
-        setupTableView()
         motionManager.delegate = self
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.lookingForPeers()
     }
-
-    func setupTableView() {
-        dataSource.append(ConnectionsDescriptor.array)
-        connectionTypeTableView.dataSource = dataSource
-        connectionTypeTableView.delegate = self
-        connectionTypeTableView.register(UITableViewCell.self, forCellReuseIdentifier: dataSource.tableViewCellID)
-        let indexPath = IndexPath(item: 0, section: 0)
-        connectionTypeTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        currentConnectionType = dataSource.item(at: 0)
+    
+    func setupPickerView() {
+        pickerConfigurator.append(ConnectionsDescriptor.array)
+        connectionTypePickerView.dataSource = pickerConfigurator
+        connectionTypePickerView.delegate = pickerConfigurator
+        connectionTypePickerView.selectRow(0, inComponent: 0, animated: true)
+        currentConnectionType = pickerConfigurator.item(at: 0)
         setConnectionTypeLabel(with: currentConnectionType.title())
     }
     
@@ -112,10 +109,10 @@ extension MainViewController: MPCManagerDelegate {
     }
 }
 
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentConnectionType = dataSource.item(at: indexPath.row)
-        setConnectionTypeLabel(with: dataSource.item(at: indexPath.row).title())
+extension MainViewController: ConnectionsTypePickerDelegate {
+    func source(_ source: ConnectionsTypePickerConfigurator, didSelectRow row: Int) {
+        currentConnectionType = pickerConfigurator.item(at: row)
+        setConnectionTypeLabel(with: pickerConfigurator.item(at: row).title())
     }
 }
 
