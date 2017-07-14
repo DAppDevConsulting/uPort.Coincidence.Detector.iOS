@@ -15,7 +15,7 @@ protocol CDMotionManagerDelegate {
 
 struct CDMotionManagerConstants {
     static let UpdateDeviceDataIntervl: Double = 0.02
-    static let MinLeftAcceleration: Double = -2.5
+    static let MinBumpAcceleration: Double = 1.0
 }
 
 class CDMotionManager: NSObject {
@@ -28,7 +28,7 @@ class CDMotionManager: NSObject {
             manager.startDeviceMotionUpdates(to: .main) {
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let x = data?.userAcceleration.x,
-                    x < CDMotionManagerConstants.MinLeftAcceleration {
+                    x > CDMotionManagerConstants.MinBumpAcceleration {
                     guard let unwrappedSelf = self, let accelerometrUnwrappedData = data?.userAcceleration else { return }
                     self?.delegate?.manager(unwrappedSelf, bumpDetectedWith: accelerometrUnwrappedData, andDateTime: Date())
                     self?.manager.stopDeviceMotionUpdates()
