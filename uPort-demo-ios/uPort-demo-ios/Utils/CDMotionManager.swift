@@ -18,7 +18,6 @@ struct CDMotionManagerConstants {
     static let MinLeftAcceleration: Double = -2.5
 }
 
-
 class CDMotionManager: NSObject {
     var delegate: CDMotionManagerDelegate?
     let manager = CMMotionManager()

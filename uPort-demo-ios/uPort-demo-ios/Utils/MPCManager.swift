@@ -55,7 +55,8 @@ class MPCManager: NSObject {
         
         if connectedPeersCount > MPCManagerConstants.MinPeersCount {
             do {
-                try self.session?.send(text.data(using: .utf8)!, toPeers: connectedPeers, with: .reliable)
+                guard let unwrappedData = text.data(using: .utf8) else { return }
+                try self.session?.send(unwrappedData, toPeers: connectedPeers, with: .reliable)
             }
             catch let error {
                 NSLog("%@", "Error for sending: \(error)")
@@ -63,9 +64,7 @@ class MPCManager: NSObject {
         } else {
             ShowBaseAlertCommand().execute(with: Texts.noPeersMessage)
         }
-        
     }
-
 }
 
 extension MPCManager: MCSessionDelegate {
@@ -101,11 +100,10 @@ extension MPCManager: MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
         NSLog("%@", "didFinishReceivingResourceWithName")
     }
-
-    
 }
 
 extension MPCManager: MCNearbyServiceBrowserDelegate {
+    
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         for (index, aPeer) in foundPeers.enumerated() {
             if aPeer == peerID {
