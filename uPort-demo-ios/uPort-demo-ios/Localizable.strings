@@ -8,8 +8,20 @@
 
 "ByTitle" = "by";
 "OkTitle" = "OK";
+"YesTitle" = "Yes";
+"NoTitle" = "No";
 "MeasureTitle" = "m";
 
 "BumpTitle" = "physical bump";
 "HandTitle" = "hand dance";
 "ImageRecognitionTitle" = "image recognision";
+
+"ReceiveConfirmationMessage" = "Are you sure you don't want to receive data?";
+"TransmitConfirmationMessage" = "Are you sure you don't want to transmit data?";
+
+"ConnectedWithMessage" = "Connected with %@.";
+"LostPeerMessage" = "Lost %@ peer.";
+"DataReceiveMessage" = "Data received %@ from %@.";
+
+"NoPeersMessage" = "There are no connected peers.";
+"NoConnectionMessage" = "Did not connect to session.";

@@ -15,6 +15,13 @@ protocol MPCManagerDelegate {
     func manager(_ manager: MPCManager, dataReceive data: [String: String])
 }
 
+struct MPCManagerConstants {
+    static let ServiceType: String = "uport-demo"
+    static let DataKey: String = "data"
+    static let FromPeerKey: String = "fromPeer"
+    static let MinPeersCount: Int = 0
+}
+
 class MPCManager: NSObject {
     
     var session: MCSession?
@@ -25,17 +32,15 @@ class MPCManager: NSObject {
     var delegate: MPCManagerDelegate?
     var foundPeers = [MCPeerID]()
     
-    private let serviceType = "uport-demo"
-    
     override init() {
         super.init()
         peer = MCPeerID(displayName: UIDevice.current.name)
         guard let unwrappedPeer = peer else { return }
         session = MCSession(peer: unwrappedPeer)
         session?.delegate = self
-        browser = MCNearbyServiceBrowser(peer: unwrappedPeer, serviceType: serviceType)
+        browser = MCNearbyServiceBrowser(peer: unwrappedPeer, serviceType: MPCManagerConstants.ServiceType)
         browser?.delegate = self
-        advertiser = MCNearbyServiceAdvertiser(peer: unwrappedPeer, discoveryInfo: nil, serviceType: serviceType)
+        advertiser = MCNearbyServiceAdvertiser(peer: unwrappedPeer, discoveryInfo: nil, serviceType: MPCManagerConstants.ServiceType)
         advertiser?.delegate = self
     }
     
@@ -48,7 +53,7 @@ class MPCManager: NSObject {
         guard let connectedPeersCount = session?.connectedPeers.count, let connectedPeers = session?.connectedPeers else { return }
         NSLog("%@", "sendText: \(text) to \(connectedPeersCount) peers")
         
-        if connectedPeersCount > 0 {
+        if connectedPeersCount > MPCManagerConstants.MinPeersCount {
             do {
                 try self.session?.send(text.data(using: .utf8)!, toPeers: connectedPeers, with: .reliable)
             }
@@ -56,7 +61,7 @@ class MPCManager: NSObject {
                 NSLog("%@", "Error for sending: \(error)")
             }
         } else {
-            ShowBaseAlertCommand().execute(with: "There are no connected peers")
+            ShowBaseAlertCommand().execute(with: Texts.noPeersMessage)
         }
         
     }
@@ -73,7 +78,7 @@ extension MPCManager: MCSessionDelegate {
             case MCSessionState.connecting:
                 NSLog("%@", "Connecting to session: \(session)")
             default:
-                ShowBaseAlertCommand().execute(with: "Did not connect to session")
+                ShowBaseAlertCommand().execute(with: Texts.noConnectionMessage)
                 NSLog("%@", "Did not connect to session: \(session)")
         }
         
@@ -81,7 +86,7 @@ extension MPCManager: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         guard let text = String(data: data, encoding: .utf8) else { return }
-        let data = ["data": text, "fromPeer": peerID.displayName]
+        let data = [MPCManagerConstants.DataKey: text, MPCManagerConstants.FromPeerKey: peerID.displayName]
         self.delegate?.manager(self, dataReceive: data)
     }
     

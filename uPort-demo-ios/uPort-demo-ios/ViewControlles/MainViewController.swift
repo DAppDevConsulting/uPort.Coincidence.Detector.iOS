@@ -56,11 +56,11 @@ class MainViewController: UIViewController {
         if !switchMode.isOn {
             let alert = UIAlertController(title: "", message: text, preferredStyle: UIAlertControllerStyle.alert)
             
-            let confirmAction: UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 switchMode.isOn = false
             }
             
-            let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            let cancelAction = UIAlertAction(title: Texts.noTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 switchMode.isOn = true
             }
             
@@ -77,11 +77,11 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func recieveModeToggle(_ sender: UISwitch) {
-        showConfirmationAlert(sender, message: "Are you sure you don't want to receive data?")
+        showConfirmationAlert(sender, message: Texts.receiveConfirmationMessage)
     }
 
     @IBAction func transmitModeToggle(_ sender: UISwitch) {
-        showConfirmationAlert(sender, message: "Are you sure you don't want to transmit data?")
+        showConfirmationAlert(sender, message: Texts.transmitConfirmationMessage)
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
@@ -94,17 +94,20 @@ class MainViewController: UIViewController {
 extension MainViewController: MPCManagerDelegate {
 
     func manager(_ manager: MPCManager, connectedWithPeer peerID: MCPeerID) {
-        ShowBaseAlertCommand().execute(with: "Connected with \(peerID.displayName).")
+        let displayingText = String(format: Texts.connectedWithMessage, peerID.displayName)
+        ShowBaseAlertCommand().execute(with:displayingText)
     }
 
     func manager(_ manager: MPCManager, lostPeer peerID: MCPeerID) {
-        ShowBaseAlertCommand().execute(with: "Lost \(peerID.displayName) peer.")
+        let displayingText = String(format: Texts.lostPeerMessage, peerID.displayName)
+        ShowBaseAlertCommand().execute(with: displayingText)
     }
     
     func manager(_ manager: MPCManager, dataReceive data: [String: String]) {
         if receiveModeSwitch.isOn {
-            guard let dataReceived = data["data"], let peerName = data["fromPeer"] else { return }
-            ShowBaseAlertCommand().execute(with: "Data received \(dataReceived) from \(peerName)")
+            guard let dataReceived = data[MPCManagerConstants.DataKey], let peerName = data[MPCManagerConstants.FromPeerKey] else { return }
+            let displayingText = String(format: Texts.dataReceiveMessage, dataReceived, peerName)
+            ShowBaseAlertCommand().execute(with: displayingText)
         }
     }
 }

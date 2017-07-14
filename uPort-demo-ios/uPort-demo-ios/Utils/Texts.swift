@@ -30,7 +30,43 @@ class Texts: NSObject {
         return String.localized(key: "OkTitle", comment: "")
     }
     
+    class var yesTitle: String {
+        return String.localized(key: "YesTitle", comment: "")
+    }
+    
+    class var noTitle: String {
+        return String.localized(key: "NoTitle", comment: "")
+    }
+    
     class var measureTitle: String {
         return String.localized(key: "MeasureTitle", comment: "")
+    }
+    
+    class var receiveConfirmationMessage: String {
+        return String.localized(key: "ReceiveConfirmationMessage", comment: "")
+    }
+    
+    class var transmitConfirmationMessage: String {
+        return String.localized(key: "TransmitConfirmationMessage", comment: "")
+    }
+    
+    class var connectedWithMessage: String {
+        return String.localized(key: "ConnectedWithMessage", comment: "")
+    }
+    
+    class var lostPeerMessage: String {
+        return String.localized(key: "LostPeerMessage", comment: "")
+    }
+    
+    class var dataReceiveMessage: String {
+        return String.localized(key: "DataReceiveMessage", comment: "")
+    }
+    
+    class var noPeersMessage: String {
+        return String.localized(key: "NoPeersMessage", comment: "")
+    }
+    
+    class var noConnectionMessage: String {
+        return String.localized(key: "NoConnectionMessage", comment: "")
     }
 }
