@@ -25,3 +25,8 @@
 
 "NoPeersMessage" = "There are no connected peers.";
 "NoConnectionMessage" = "Did not connect to session.";
+
+// MARK: Internet Connection
+"NoInternetConnection" = "No Internet Connection!";
+"NoInternetConnectionMessage" = "Please check your internet connection and try again";
+"UnspecifiedErrorTitle" = "Sorry, something went wrong.";

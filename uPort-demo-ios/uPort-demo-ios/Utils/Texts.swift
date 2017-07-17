@@ -69,4 +69,18 @@ class Texts: NSObject {
     class var noConnectionMessage: String {
         return String.localized(key: "NoConnectionMessage", comment: "")
     }
+    
+    
+    // MARK: Internet Connection
+    class var noInternetConnection: String {
+        return String.localized(key: "NoInternetConnection", comment: "")
+    }
+    
+    class var noInternetConnectionMessage: String {
+        return String.localized(key: "NoInternetConnectionMessage", comment: "")
+    }
+    
+    class var unspecifiedServerErrorTitle: String {
+        return String.localized(key: "UnspecifiedErrorTitle", comment: "")
+    }
 }
