@@ -12,7 +12,7 @@ import SystemConfiguration
 struct ReachabilityConstants {
     static let Url: String = "http://google.com/"
     static let HttpMethod: String = "HEAD"
-    static let SuccessSCode = 200
+    static let SuccessCode = 200
     static let TimeoutInterval = 10.0
 }
 
@@ -26,7 +26,7 @@ public class Reachability {
         request.timeoutInterval = ReachabilityConstants.TimeoutInterval
         session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == ReachabilityConstants.SuccessSCode {
+                if httpResponse.statusCode == ReachabilityConstants.SuccessCode {
                     completion(true)
                 }
             }else {

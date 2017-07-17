@@ -10,8 +10,7 @@ import UIKit
 import Alamofire
 
 class Server {
-    let serverUrl = "https://testservername/api/"
-    let apiVersion = "v1/"
+    let serverUrl = "http://207.154.238.203"
     
     static let sharedInstance = Server()
     private init() {}
@@ -64,9 +63,9 @@ class Server {
     }
     
     private func buildUrlForRequest(request: IRequest) -> String {
-        let fullURL = serverUrl + apiVersion + request.url()
+        let fullURL = serverUrl + request.url()
         print("\n\nFull URL is: " + fullURL)
-        return serverUrl + apiVersion + request.url()
+        return serverUrl + request.url()
     }
 }
 

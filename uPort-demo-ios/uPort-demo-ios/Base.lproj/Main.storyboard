@@ -198,7 +198,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="tlO-dp-YDI">
                         <barButtonItem key="leftBarButtonItem" title="uPort CD" id="4Vt-Aa-gJz"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="fTo-y6-Ag4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="fTo-y6-Ag4">
+                            <connections>
+                                <segue destination="RJm-c5-bBw" kind="show" id="Ptv-K3-AmJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="connectionTypePickerView" destination="1Sm-kq-yRD" id="LAy-Ea-kce"/>
@@ -211,6 +215,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NZ-dt-jOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54.375" y="511.26760563380282"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="y4j-WB-wvc">
+            <objects>
+                <viewController id="RJm-c5-bBw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aS9-2I-XYV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ard-2j-Tke"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bts-4P-Njt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="r71-d7-m2k">
+                        <barButtonItem key="leftBarButtonItem" title="uPort CD" id="7yf-wW-dQx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="1m4-wz-HAX"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0RR-mZ-xaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="509"/>
         </scene>
     </scenes>
 </document>
