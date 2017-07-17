@@ -26,6 +26,8 @@
 		945E87B51F1CDA6B00929006 /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B41F1CDA6A00929006 /* AccessTokenManager.swift */; };
 		945E87B71F1CDAD700929006 /* CDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B61F1CDAD700929006 /* CDUserDefaults.swift */; };
 		945E87B91F1CE8ED00929006 /* CDSchemaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B81F1CE8ED00929006 /* CDSchemaManager.swift */; };
+		945E87BC1F1CEF5F00929006 /* UportUriRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87BB1F1CEF5F00929006 /* UportUriRequest.swift */; };
+		945E87BE1F1CEFC200929006 /* UportUriResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87BD1F1CEFC200929006 /* UportUriResponse.swift */; };
 		948120031F1785B6000410DB /* CDMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120021F1785B6000410DB /* CDMotionManager.swift */; };
 		948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120051F178CE8000410DB /* ConnectionsDescriptor.swift */; };
 		948120081F17A0AD000410DB /* Date+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120071F17A0AD000410DB /* Date+Convert.swift */; };
@@ -86,6 +88,8 @@
 		945E87B41F1CDA6A00929006 /* AccessTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		945E87B61F1CDAD700929006 /* CDUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserDefaults.swift; sourceTree = "<group>"; };
 		945E87B81F1CE8ED00929006 /* CDSchemaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDSchemaManager.swift; sourceTree = "<group>"; };
+		945E87BB1F1CEF5F00929006 /* UportUriRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UportUriRequest.swift; sourceTree = "<group>"; };
+		945E87BD1F1CEFC200929006 /* UportUriResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UportUriResponse.swift; sourceTree = "<group>"; };
 		948120021F1785B6000410DB /* CDMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMotionManager.swift; sourceTree = "<group>"; };
 		948120051F178CE8000410DB /* ConnectionsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDescriptor.swift; sourceTree = "<group>"; };
 		948120071F17A0AD000410DB /* Date+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Convert.swift"; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		945E87A51F1CCAB600929006 /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				945E87BA1F1CEF1900929006 /* UportUri */,
 				945E87A61F1CCB0200929006 /* Server.swift */,
 				945E87A81F1CCB5000929006 /* IRequest.swift */,
 				945E87AA1F1CCB6100929006 /* IResponse.swift */,
@@ -201,6 +206,15 @@
 				945E87AE1F1CCD2200929006 /* Reachabiliy.swift */,
 			);
 			path = DAL;
+			sourceTree = "<group>";
+		};
+		945E87BA1F1CEF1900929006 /* UportUri */ = {
+			isa = PBXGroup;
+			children = (
+				945E87BB1F1CEF5F00929006 /* UportUriRequest.swift */,
+				945E87BD1F1CEFC200929006 /* UportUriResponse.swift */,
+			);
+			path = UportUri;
 			sourceTree = "<group>";
 		};
 		948120041F178CB1000410DB /* Helpers */ = {
@@ -574,6 +588,7 @@
 				945E87B31F1CD60300929006 /* String+Random.swift in Sources */,
 				94B366F71F1652F200E59892 /* Texts.swift in Sources */,
 				9425C0B91F13A21C00A3AF02 /* ViewController.swift in Sources */,
+				945E87BC1F1CEF5F00929006 /* UportUriRequest.swift in Sources */,
 				94B367011F165C4C00E59892 /* ConnectionsTypePickerConfigurator.swift in Sources */,
 				945E87AD1F1CCB8300929006 /* BaseResponse.swift in Sources */,
 				9425C0B71F13A21C00A3AF02 /* AppDelegate.swift in Sources */,
@@ -584,6 +599,7 @@
 				948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */,
 				945E87AF1F1CCD2200929006 /* Reachabiliy.swift in Sources */,
 				945E87AB1F1CCB6100929006 /* IResponse.swift in Sources */,
+				945E87BE1F1CEFC200929006 /* UportUriResponse.swift in Sources */,
 				945E87B11F1CCD8300929006 /* ShowNoInternetConnectionAlertCommand.swift in Sources */,
 				945E87B51F1CDA6B00929006 /* AccessTokenManager.swift in Sources */,
 				945E87A71F1CCB0200929006 /* Server.swift in Sources */,

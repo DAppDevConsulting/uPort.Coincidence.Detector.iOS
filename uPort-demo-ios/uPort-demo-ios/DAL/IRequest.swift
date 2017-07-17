@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 enum RequestType {
-    case login
+    case uportUri
 }
 
 protocol IRequest {
