@@ -45,7 +45,9 @@ class Server {
     private func handleSuccessResponse(request: IRequest, response: DataResponse<Any>) -> IResponse? {
         switch request.type() {
         case .uportUri:
-            return BaseResponse(response: response)
+            return UportUriResponse(response: response)
+        case .profile:
+            return UserProfileResponse(response: response)
         }
     }
     

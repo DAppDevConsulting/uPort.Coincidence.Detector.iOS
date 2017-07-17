@@ -11,6 +11,7 @@ import Alamofire
 
 enum RequestType {
     case uportUri
+    case profile
 }
 
 protocol IRequest {

@@ -1,5 +1,5 @@
 //
-//  UportUriRequest.swift
+//  UserProfileRequest.swift
 //  uPort-demo-ios
 //
 //  Created by Oksana Hanailiuk on 7/17/17.
@@ -9,25 +9,28 @@
 import UIKit
 import Alamofire
 
-class UportUriRequest: IRequest {
+class UserProfileRequest: IRequest {
+    
+    var requestId = ""
     
     func method() -> HTTPMethod {
         return .get
     }
     
     func url() -> String {
-        return "/uport-uri"
+        return "/profile"
     }
     
     func type() -> RequestType {
-        return .uportUri
+        return .profile
     }
     
     func params() -> [String : AnyObject]? {
-        return nil
+        return ["requestId": requestId as AnyObject]
     }
     
     func encoding() -> ParameterEncoding {
         return JSONEncoding.default
     }
+
 }
