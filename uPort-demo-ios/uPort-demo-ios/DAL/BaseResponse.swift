@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 struct BaseResponseConstants {
     static let ErrorKey: String = "error"
@@ -29,11 +30,9 @@ class BaseResponse: NSObject, IResponse {
     required init(response: DataResponse<Any>) {
         super.init()
         
-        fetchNewToken(headers: response.response?.allHeaderFields as [AnyHashable : AnyObject]?)
-    }
-    
-    private func fetchNewToken(headers: [AnyHashable: AnyObject]?) {
-        //TODO: fetch new tocken
+        if let json = response.result.value {
+            data = JSON(json) as AnyObject?
+        }
     }
     
     func handleUnspecifiedError() {

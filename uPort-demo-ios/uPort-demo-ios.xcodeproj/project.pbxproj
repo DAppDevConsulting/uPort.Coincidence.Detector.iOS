@@ -28,7 +28,6 @@
 		945E87AF1F1CCD2200929006 /* Reachabiliy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87AE1F1CCD2200929006 /* Reachabiliy.swift */; };
 		945E87B11F1CCD8300929006 /* ShowNoInternetConnectionAlertCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B01F1CCD8300929006 /* ShowNoInternetConnectionAlertCommand.swift */; };
 		945E87B31F1CD60300929006 /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B21F1CD60300929006 /* String+Random.swift */; };
-		945E87B51F1CDA6B00929006 /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B41F1CDA6A00929006 /* AccessTokenManager.swift */; };
 		945E87B71F1CDAD700929006 /* CDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B61F1CDAD700929006 /* CDUserDefaults.swift */; };
 		945E87B91F1CE8ED00929006 /* CDSchemaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87B81F1CE8ED00929006 /* CDSchemaManager.swift */; };
 		945E87BC1F1CEF5F00929006 /* UportUriRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E87BB1F1CEF5F00929006 /* UportUriRequest.swift */; };
@@ -104,7 +103,6 @@
 		945E87AE1F1CCD2200929006 /* Reachabiliy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachabiliy.swift; sourceTree = "<group>"; };
 		945E87B01F1CCD8300929006 /* ShowNoInternetConnectionAlertCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNoInternetConnectionAlertCommand.swift; sourceTree = "<group>"; };
 		945E87B21F1CD60300929006 /* String+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Random.swift"; sourceTree = "<group>"; };
-		945E87B41F1CDA6A00929006 /* AccessTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		945E87B61F1CDAD700929006 /* CDUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserDefaults.swift; sourceTree = "<group>"; };
 		945E87B81F1CE8ED00929006 /* CDSchemaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDSchemaManager.swift; sourceTree = "<group>"; };
 		945E87BB1F1CEF5F00929006 /* UportUriRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UportUriRequest.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 				94B366FD1F16546D00E59892 /* MPCManager.swift */,
 				94B366F61F1652F200E59892 /* Texts.swift */,
 				948120021F1785B6000410DB /* CDMotionManager.swift */,
-				945E87B41F1CDA6A00929006 /* AccessTokenManager.swift */,
 				945E87B61F1CDAD700929006 /* CDUserDefaults.swift */,
 				945E87B81F1CE8ED00929006 /* CDSchemaManager.swift */,
 			);
@@ -685,7 +682,6 @@
 				9475B1AB1F1E29B600497EAE /* ProfileViewController.swift in Sources */,
 				945E87BE1F1CEFC200929006 /* UportUriResponse.swift in Sources */,
 				945E87B11F1CCD8300929006 /* ShowNoInternetConnectionAlertCommand.swift in Sources */,
-				945E87B51F1CDA6B00929006 /* AccessTokenManager.swift in Sources */,
 				945E87A71F1CCB0200929006 /* Server.swift in Sources */,
 				9475B1A11F1DF47F00497EAE /* UportInfo.swift in Sources */,
 				9475B19F1F1DF46400497EAE /* IParsable.swift in Sources */,

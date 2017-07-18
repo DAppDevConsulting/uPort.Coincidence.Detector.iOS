@@ -10,7 +10,6 @@ import UIKit
 
 class CDUserDefaults: NSObject {
     
-    private let keyToken = "AccessToken"
     private let keyFirstLaunch = "FirstLaunch"
     private let keyName = "Name"
     private let keyPhone = "Phone"
@@ -27,16 +26,6 @@ class CDUserDefaults: NSObject {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: keyFirstLaunch)
-            synchronize()
-        }
-    }
-    
-    var token: String? {
-        get {
-            return UserDefaults.standard.value(forKey: keyToken) as? String
-        }
-        set (newToken) {
-            UserDefaults.standard.setValue(newToken, forKey: keyToken)
             synchronize()
         }
     }
