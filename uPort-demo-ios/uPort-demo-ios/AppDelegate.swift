@@ -16,18 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mpcManager: MPCManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         mpcManager = MPCManager()
-        //let uportUriHandler = UportUriHandler(with: self)
-        //uportUriHandler.requestUportURi()
-        
+        if !CDUserDefaults().isLaunchedBefore {
+            let uportUriHandler = UportUriHandler(with: self)
+            uportUriHandler.requestUportURi()
+        }
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let array = url.absoluteString.components(separatedBy: ":/")
         let profileLocation = array[1]
-        let userInfoHanler = UserProfileHandler(with: self)
+        let userInfoHanler = UserProfileHandler(with: nil)
         userInfoHanler.requestUserInfo(with: profileLocation)
         return true
     }
@@ -60,11 +60,5 @@ extension AppDelegate: UportUriHandlerDelegate {
         let cdSchemaManager = CDSchemaManager()
         guard let uri = result.uri else { return }
         cdSchemaManager.openCustomApp(with: uri)
-    }
-}
-
-extension AppDelegate: UserProfileHandlerDelegate {
-    func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo) {
-        print("receive user data")
     }
 }

@@ -10,6 +10,8 @@
 		25D3786FFD4A750A2A822174 /* Pods_uPort_demo_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614BD40E01DC9EB1BA35F2B4 /* Pods_uPort_demo_iosUITests.framework */; };
 		5322B15FDD9432CF93722081 /* Pods_uPort_demo_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748175E45E2DCA222C36F224 /* Pods_uPort_demo_ios.framework */; };
 		940164CF1F1E444C00381EC0 /* UIStoryboard+CdUport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940164CE1F1E444C00381EC0 /* UIStoryboard+CdUport.swift */; };
+		940164D11F1E514200381EC0 /* AttensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940164D01F1E514200381EC0 /* AttensionPopup.swift */; };
+		940164D41F1E5E1D00381EC0 /* SpinnerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940164D31F1E5E1D00381EC0 /* SpinnerProvider.swift */; };
 		9425C0B71F13A21C00A3AF02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0B61F13A21C00A3AF02 /* AppDelegate.swift */; };
 		9425C0B91F13A21C00A3AF02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0B81F13A21C00A3AF02 /* ViewController.swift */; };
 		9425C0BC1F13A21C00A3AF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9425C0BA1F13A21C00A3AF02 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 		63AC9FF16B0EEE171FA72B16 /* Pods-uPort-demo-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPort-demo-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uPort-demo-iosUITests/Pods-uPort-demo-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		748175E45E2DCA222C36F224 /* Pods_uPort_demo_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uPort_demo_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		940164CE1F1E444C00381EC0 /* UIStoryboard+CdUport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CdUport.swift"; sourceTree = "<group>"; };
+		940164D01F1E514200381EC0 /* AttensionPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttensionPopup.swift; sourceTree = "<group>"; };
+		940164D31F1E5E1D00381EC0 /* SpinnerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerProvider.swift; sourceTree = "<group>"; };
 		9425C0B31F13A21C00A3AF02 /* uPort-demo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uPort-demo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425C0B61F13A21C00A3AF02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9425C0B81F13A21C00A3AF02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940164D21F1E5E0B00381EC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				940164D31F1E5E1D00381EC0 /* SpinnerProvider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9425C0AA1F13A21C00A3AF02 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +196,7 @@
 		9425C0B51F13A21C00A3AF02 /* uPort-demo-ios */ = {
 			isa = PBXGroup;
 			children = (
+				940164D21F1E5E0B00381EC0 /* Views */,
 				9444C1521F1D1CFB007A6F87 /* Model */,
 				945E87A51F1CCAB600929006 /* DAL */,
 				948120041F178CB1000410DB /* Helpers */,
@@ -300,6 +313,7 @@
 				94B366FB1F16545F00E59892 /* MainViewController.swift */,
 				9475B1A81F1E287A00497EAE /* SettingsViewController.swift */,
 				9475B1AA1F1E29B600497EAE /* ProfileViewController.swift */,
+				940164D01F1E514200381EC0 /* AttensionPopup.swift */,
 			);
 			path = ViewControlles;
 			sourceTree = "<group>";
@@ -663,6 +677,7 @@
 				94B367061F1661B600E59892 /* ShowBaseAlertCommand.swift in Sources */,
 				948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */,
 				945E87AF1F1CCD2200929006 /* Reachabiliy.swift in Sources */,
+				940164D41F1E5E1D00381EC0 /* SpinnerProvider.swift in Sources */,
 				945E87AB1F1CCB6100929006 /* IResponse.swift in Sources */,
 				9444C1511F1D1CC9007A6F87 /* UserProfileResponse.swift in Sources */,
 				9475B1AD1F1E311E00497EAE /* UIImageView+RoundCorners.swift in Sources */,
@@ -674,6 +689,7 @@
 				945E87A71F1CCB0200929006 /* Server.swift in Sources */,
 				9475B1A11F1DF47F00497EAE /* UportInfo.swift in Sources */,
 				9475B19F1F1DF46400497EAE /* IParsable.swift in Sources */,
+				940164D11F1E514200381EC0 /* AttensionPopup.swift in Sources */,
 				948120081F17A0AD000410DB /* Date+Convert.swift in Sources */,
 				9475B1A31F1DFBAC00497EAE /* UserInfo.swift in Sources */,
 				945E87B91F1CE8ED00929006 /* CDSchemaManager.swift in Sources */,

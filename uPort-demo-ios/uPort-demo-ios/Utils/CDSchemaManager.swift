@@ -12,17 +12,15 @@ class CDSchemaManager: NSObject {
     
     let appDelegate = UIApplication.shared
 
-    //TODO: remove print results, handle results
     func openCustomApp(with URLScheme: String) {
         if let customUrl = URL(string:URLScheme) {
             if appDelegate.canOpenURL(customUrl) {
-                print("true")
+                if openCustomURLScheme(customURLScheme: URLScheme) {
+                    print("app was opened successfully")
+                }
+            } else {
+                openAttensionView()
             }
-        }
-        if openCustomURLScheme(customURLScheme: URLScheme) {
-            print("app was opened successfully")
-        } else {
-            print("unable to open")
         }
     }
     
@@ -39,5 +37,15 @@ class CDSchemaManager: NSObject {
         }
         return false
     }
-
+    
+    private func openAttensionView() {
+        let window = UIApplication.shared.keyWindow
+        if let topController = window?.rootViewController {
+            if let popupVC = UIStoryboard.main().instantiateViewController(withIdentifier: "AttensionPopupVC") as? AttensionPopup {
+                popupVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                popupVC.modalTransitionStyle = .crossDissolve
+                topController.present(popupVC, animated: true, completion: nil)
+            }
+        }
+    }
 }

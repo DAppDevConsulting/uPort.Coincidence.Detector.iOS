@@ -16,14 +16,17 @@ protocol UportUriHandlerDelegate: class {
 class UportUriHandler {
     
     private weak var delegate: UportUriHandlerDelegate?
+    private var spinnerProvider = SpinnerProvider()
     
     init(with callbackResponder: UportUriHandlerDelegate) {
         delegate = callbackResponder
     }
     
     func requestUportURi() {
+        spinnerProvider.startSpinner()
         let request = UportUriRequest()
         Server.sharedInstance.sendRequest(request: request, responseHandler: { response in
+            self.spinnerProvider.stopSpinner()
             if let success = response?.isSuccess {
                 if success {
                     if let json = response?.data as? JSON {

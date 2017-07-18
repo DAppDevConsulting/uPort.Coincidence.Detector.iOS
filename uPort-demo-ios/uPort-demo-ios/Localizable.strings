@@ -30,3 +30,9 @@
 "NoInternetConnection" = "No Internet Connection!";
 "NoInternetConnectionMessage" = "Please check your internet connection and try again";
 "UnspecifiedErrorTitle" = "Sorry, something went wrong.";
+
+//MARK: fail profile response
+"FailProfileTitle" = "Did receive fail profile";
+"FailProfileMessage" = "Do you want to send request again or exit?";
+"SendRequestTitle" = "Send request";
+"ExitTitle" = "Exit";

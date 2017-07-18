@@ -22,8 +22,9 @@ class ProfileViewController: UIViewController {
     
     func setupUI() {
         let userInfo = CDUserDefaults().getUserInfo()
-        guard let imageUrl = userInfo.imageUrl else { return }
-        profileImageView.downloadFrom(link: imageUrl)
+        if let imageUrl = userInfo.imageUrl {
+            profileImageView.downloadFrom(link: imageUrl)
+        }
         profileNameLabel.text = userInfo.name
         profilePhoneLabel.text = userInfo.phone
         profileCountryLabel.text = userInfo.country

@@ -15,7 +15,7 @@ class CDUserDefaults: NSObject {
     private let keyName = "Name"
     private let keyPhone = "Phone"
     private let keyCountry = "Country"
-    private let keyImageURL = "FirstLaunch"
+    private let keyImageURL = "ImageURL"
     
     private func synchronize() {
         UserDefaults.standard.synchronize()

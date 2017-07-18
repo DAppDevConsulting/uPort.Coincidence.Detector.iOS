@@ -83,4 +83,21 @@ class Texts: NSObject {
     class var unspecifiedServerErrorTitle: String {
         return String.localized(key: "UnspecifiedErrorTitle", comment: "")
     }
+    
+    //MARK: fail profile response
+    class var failProfileTitle: String {
+        return String.localized(key: "FailProfileTitle", comment: "")
+    }
+    
+    class var failProfileMessage: String {
+        return String.localized(key: "FailProfileMessage", comment: "")
+    }
+    
+    class var sendRequestTitle: String {
+        return String.localized(key: "SendRequestTitle", comment: "")
+    }
+    
+    class var exitTitle: String {
+        return String.localized(key: "ExitTitle", comment: "")
+    }
 }
