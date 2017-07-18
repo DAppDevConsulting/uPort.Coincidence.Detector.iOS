@@ -11,14 +11,14 @@ import Alamofire
 
 class UserProfileRequest: IRequest {
     
-    var requestId = ""
+    var profileLocation = ""
     
     func method() -> HTTPMethod {
         return .get
     }
     
     func url() -> String {
-        return "/profile"
+        return profileLocation
     }
     
     func type() -> RequestType {
@@ -26,7 +26,7 @@ class UserProfileRequest: IRequest {
     }
     
     func params() -> [String : AnyObject]? {
-        return ["requestId": requestId as AnyObject]
+        return nil
     }
     
     func encoding() -> ParameterEncoding {

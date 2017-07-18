@@ -18,21 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         mpcManager = MPCManager()
-        requestUportURi()
+        let uportUriHandler = UportUriHandler(with: self)
+        uportUriHandler.requestUportURi()
         
         return true
     }
-    
-    //Test method
-    //TODO: move to class and handle ersponse
-    func requestUportURi() {
-        let request = UportUriRequest()
-        Server.sharedInstance.sendRequest(request: request, responseHandler: { response in
-            print(response)
-            }
-        )
-    }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -55,7 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate: UportUriHandlerDelegate {
+    func handler(_ uportHandler: UportUriHandler, didReceive result: UportInfo) {
+        let cdSchemaManager = CDSchemaManager()
+        guard let uri = result.uri else { return }
+        cdSchemaManager.openCustomApp(with: uri)
+    }
 }
 
