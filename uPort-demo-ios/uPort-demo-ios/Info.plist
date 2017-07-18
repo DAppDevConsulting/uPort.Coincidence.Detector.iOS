@@ -14,7 +14,7 @@
 			<string>com.uport.demo.cd1</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>uportDemoCustomURLScheme</string>
+				<string>cdUportDemoCustomURLScheme</string>
 			</array>
 		</dict>
 	</array>
