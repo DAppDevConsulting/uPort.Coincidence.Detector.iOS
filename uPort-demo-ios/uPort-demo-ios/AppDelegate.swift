@@ -50,8 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UportUriHandlerDelegate {
     func handler(_ uportHandler: UportUriHandler, didReceive result: UportInfo) {
         let cdSchemaManager = CDSchemaManager()
-        guard let uri = result.uri else { return }
+        guard let uri = result.uri, let profileLocation = result.profileLocation else { return }
         cdSchemaManager.openCustomApp(with: uri)
+        //TODO: REMOVE call when test finished
+        let userInfoHanler = UserProfileHandler(with: self)
+        userInfoHanler.requestUserInfo(with: profileLocation)
     }
 }
 
+//MARK - test for user info saving 
+//TODO: REMOVE when server finish, don't forget remove call
+extension AppDelegate: UserProfileHandlerDelegate {
+    func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo) {
+        print("receive user data")
+    }
+}

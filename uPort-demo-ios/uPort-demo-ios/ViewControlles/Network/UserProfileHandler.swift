@@ -15,7 +15,7 @@ protocol UserProfileHandlerDelegate: class {
 
 class UserProfileHandler {
     
-    weak var delegate: UserProfileHandlerDelegate?
+    private weak var delegate: UserProfileHandlerDelegate?
     
     init(with callbackResponder: UserProfileHandlerDelegate) {
         delegate = callbackResponder

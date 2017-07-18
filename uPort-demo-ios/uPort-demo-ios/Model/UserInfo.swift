@@ -30,6 +30,15 @@ class UserInfo: IParsable {
             country = json[JSONKeys.country].string
             let imageJSON = json[JSONKeys.image]
             imageUrl = imageJSON[JSONKeys.url].string
+            saveDataIntoUserDefaults()
         }
+    }
+    
+    private func saveDataIntoUserDefaults() {
+        let userDefaults =  CDUserDefaults()
+        userDefaults.userName = self.name
+        userDefaults.userPhone = self.phone
+        userDefaults.userCountry = self.country
+        userDefaults.imageURL = self.imageUrl
     }
 }

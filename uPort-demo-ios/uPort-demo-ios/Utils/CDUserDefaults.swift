@@ -10,8 +10,12 @@ import UIKit
 
 class CDUserDefaults: NSObject {
     
-    let keyToken = "AccessToken"
-    let keyFirstLaunch = "FirstLaunch"
+    private let keyToken = "AccessToken"
+    private let keyFirstLaunch = "FirstLaunch"
+    private let keyName = "Name"
+    private let keyPhone = "Phone"
+    private let keyCountry = "Country"
+    private let keyImageURL = "FirstLaunch"
     
     private func synchronize() {
         UserDefaults.standard.synchronize()
@@ -35,5 +39,55 @@ class CDUserDefaults: NSObject {
             UserDefaults.standard.setValue(newToken, forKey: keyToken)
             synchronize()
         }
+    }
+    
+    //MARK: - save local user info data
+    var userName: String? {
+        get {
+            return UserDefaults.standard.value(forKey: keyName) as? String
+        }
+        set (newToken) {
+            UserDefaults.standard.setValue(newToken, forKey: keyName)
+            synchronize()
+        }
+    }
+    
+    var userPhone: String? {
+        get {
+            return UserDefaults.standard.value(forKey: keyPhone) as? String
+        }
+        set (newToken) {
+            UserDefaults.standard.setValue(newToken, forKey: keyPhone)
+            synchronize()
+        }
+    }
+    
+    var userCountry: String? {
+        get {
+            return UserDefaults.standard.value(forKey: keyCountry) as? String
+        }
+        set (newToken) {
+            UserDefaults.standard.setValue(newToken, forKey: keyCountry)
+            synchronize()
+        }
+    }
+    
+    var imageURL: String? {
+        get {
+            return UserDefaults.standard.value(forKey: keyImageURL) as? String
+        }
+        set (newToken) {
+            UserDefaults.standard.setValue(newToken, forKey: keyImageURL)
+            synchronize()
+        }
+    }
+    
+    func getUserInfo() -> UserInfo {
+        let userInfo = UserInfo()
+        userInfo.name = userName
+        userInfo.phone = userPhone
+        userInfo.country = userCountry
+        userInfo.imageUrl = imageURL
+        return userInfo
     }
 }
