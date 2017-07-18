@@ -11,6 +11,9 @@ import UIKit
 extension UIImageView {
     func downloadFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
+        let activityIndicator = UIActivityIndicatorView(frame: self.frame)
+        addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -19,7 +22,9 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() { () -> Void in
-                self.image = image }
+                activityIndicator.startAnimating()
+                activityIndicator.removeFromSuperview()
+                self.image = image}
             }.resume()
     }
     

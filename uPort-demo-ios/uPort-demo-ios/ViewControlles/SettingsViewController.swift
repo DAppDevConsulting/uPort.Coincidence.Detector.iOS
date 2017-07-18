@@ -8,28 +8,26 @@
 
 import UIKit
 
+struct SettingsConstants {
+    static let ProfileId: String = "ProfileVC"
+}
+
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var arrowButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        userNameLabel.text = CDUserDefaults().userName
+        let tapGesture =  UITapGestureRecognizer(target: self, action: #selector(openProfileVC))
+        profileView.addGestureRecognizer(tapGesture)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func openProfileVC(){
+        if let profileVC = UIStoryboard.main().instantiateViewController(withIdentifier: SettingsConstants.ProfileId) as? ProfileViewController {
+            navigationController?.pushViewController(profileVC, animated: true)
+        }
     }
-    */
-
 }

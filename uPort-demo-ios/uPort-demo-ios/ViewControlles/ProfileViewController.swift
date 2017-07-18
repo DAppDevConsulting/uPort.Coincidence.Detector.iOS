@@ -10,26 +10,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var profileCountryLabel: UILabel!
+    @IBOutlet weak var profilePhoneLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupUI() {
+        let userInfo = CDUserDefaults().getUserInfo()
+        guard let imageUrl = userInfo.imageUrl else { return }
+        profileImageView.downloadFrom(link: imageUrl)
+        profileNameLabel.text = userInfo.name
+        profilePhoneLabel.text = userInfo.phone
+        profileCountryLabel.text = userInfo.country
     }
-    */
-
 }

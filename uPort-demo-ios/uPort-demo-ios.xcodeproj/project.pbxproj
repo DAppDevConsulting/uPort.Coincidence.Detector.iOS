@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25D3786FFD4A750A2A822174 /* Pods_uPort_demo_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614BD40E01DC9EB1BA35F2B4 /* Pods_uPort_demo_iosUITests.framework */; };
 		5322B15FDD9432CF93722081 /* Pods_uPort_demo_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748175E45E2DCA222C36F224 /* Pods_uPort_demo_ios.framework */; };
+		940164CF1F1E444C00381EC0 /* UIStoryboard+CdUport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940164CE1F1E444C00381EC0 /* UIStoryboard+CdUport.swift */; };
 		9425C0B71F13A21C00A3AF02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0B61F13A21C00A3AF02 /* AppDelegate.swift */; };
 		9425C0B91F13A21C00A3AF02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425C0B81F13A21C00A3AF02 /* ViewController.swift */; };
 		9425C0BC1F13A21C00A3AF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9425C0BA1F13A21C00A3AF02 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		614BD40E01DC9EB1BA35F2B4 /* Pods_uPort_demo_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uPort_demo_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AC9FF16B0EEE171FA72B16 /* Pods-uPort-demo-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPort-demo-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uPort-demo-iosUITests/Pods-uPort-demo-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		748175E45E2DCA222C36F224 /* Pods_uPort_demo_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uPort_demo_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		940164CE1F1E444C00381EC0 /* UIStoryboard+CdUport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CdUport.swift"; sourceTree = "<group>"; };
 		9425C0B31F13A21C00A3AF02 /* uPort-demo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uPort-demo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425C0B61F13A21C00A3AF02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9425C0B81F13A21C00A3AF02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				945E87B21F1CD60300929006 /* String+Random.swift */,
 				9475B1A41F1DFD3E00497EAE /* UIImageView+Download.swift */,
 				9475B1AC1F1E311E00497EAE /* UIImageView+RoundCorners.swift */,
+				940164CE1F1E444C00381EC0 /* UIStoryboard+CdUport.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				9475B1A71F1E02D300497EAE /* UserProfileHandler.swift in Sources */,
 				9475B1A91F1E287A00497EAE /* SettingsViewController.swift in Sources */,
 				945E87A91F1CCB5000929006 /* IRequest.swift in Sources */,
+				940164CF1F1E444C00381EC0 /* UIStoryboard+CdUport.swift in Sources */,
 				94B367041F16618000E59892 /* ICommand.swift in Sources */,
 				9444C14F1F1D1B9B007A6F87 /* UserProfileRequest.swift in Sources */,
 				948120031F1785B6000410DB /* CDMotionManager.swift in Sources */,

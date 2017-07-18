@@ -501,6 +501,11 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="SeK-WA-AeV"/>
                         <barButtonItem key="rightBarButtonItem" title="uPort CD" id="dzR-YV-bPy"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="arrowButton" destination="gVl-Oj-aJz" id="TRW-o2-zhz"/>
+                        <outlet property="profileView" destination="DBU-OZ-oeh" id="9IN-UI-asJ"/>
+                        <outlet property="userNameLabel" destination="B0t-GB-vqv" id="XaW-yE-NTz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0RR-mZ-xaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -509,7 +514,7 @@
         <!--Profile-->
         <scene sceneID="u0a-So-1cB">
             <objects>
-                <viewController id="zXn-vU-2zn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="zXn-vU-2zn" customClass="ProfileViewController" customModule="uPort_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5lG-Pz-ypU"/>
                         <viewControllerLayoutGuide type="bottom" id="o24-Nz-18m"/>
@@ -519,14 +524,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ox-Jz-xc2">
-                                <rect key="frame" x="40" y="113.5" width="240" height="128"/>
+                                <rect key="frame" x="65" y="81.5" width="190" height="190"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="KAG-Ve-sSj"/>
-                                    <constraint firstAttribute="width" constant="240" id="ohi-5f-9B3"/>
+                                    <constraint firstAttribute="height" constant="190" id="KAG-Ve-sSj"/>
+                                    <constraint firstAttribute="width" constant="190" id="ohi-5f-9B3"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pavlo Makarov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hT-bd-UUQ">
-                                <rect key="frame" x="60" y="271.5" width="200" height="25"/>
+                                <rect key="frame" x="60" y="301.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2f4-wJ-NSE"/>
                                     <constraint firstAttribute="width" constant="200" id="mqa-ab-YHJ"/>
@@ -536,7 +546,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ukraine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXT-I8-IHY">
-                                <rect key="frame" x="100" y="319.5" width="120" height="21"/>
+                                <rect key="frame" x="100" y="349.5" width="120" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="PQ7-WQ-CYZ"/>
                                 </constraints>
@@ -545,7 +555,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+380676914573" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qv7-be-rql">
-                                <rect key="frame" x="70" y="348.5" width="180" height="21"/>
+                                <rect key="frame" x="70" y="378.5" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="ngy-ep-1sF"/>
                                 </constraints>
@@ -558,7 +568,7 @@
                         <constraints>
                             <constraint firstItem="uXT-I8-IHY" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="4Oo-lW-fNc"/>
                             <constraint firstItem="qv7-be-rql" firstAttribute="top" secondItem="uXT-I8-IHY" secondAttribute="bottom" constant="8" id="CcT-uV-sdc"/>
-                            <constraint firstItem="4hT-bd-UUQ" firstAttribute="centerY" secondItem="4JR-kR-FrK" secondAttribute="centerY" id="KwA-06-G33"/>
+                            <constraint firstItem="4hT-bd-UUQ" firstAttribute="centerY" secondItem="4JR-kR-FrK" secondAttribute="centerY" constant="30" id="KwA-06-G33"/>
                             <constraint firstItem="4hT-bd-UUQ" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="Mm2-LU-eb8"/>
                             <constraint firstItem="4hT-bd-UUQ" firstAttribute="top" secondItem="9Ox-Jz-xc2" secondAttribute="bottom" constant="30" id="OwC-2a-JFa"/>
                             <constraint firstItem="qv7-be-rql" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="gmZ-wx-nCv"/>
@@ -570,6 +580,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Mfz-gc-kAp"/>
                         <barButtonItem key="rightBarButtonItem" title="uPort CD" id="xed-Kc-cBl"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileCountryLabel" destination="uXT-I8-IHY" id="aRv-2s-ReP"/>
+                        <outlet property="profileImageView" destination="9Ox-Jz-xc2" id="2CR-bv-Bac"/>
+                        <outlet property="profileNameLabel" destination="4hT-bd-UUQ" id="wQP-63-7Sb"/>
+                        <outlet property="profilePhoneLabel" destination="qv7-be-rql" id="YY9-Cu-M4t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21q-hA-9RV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
