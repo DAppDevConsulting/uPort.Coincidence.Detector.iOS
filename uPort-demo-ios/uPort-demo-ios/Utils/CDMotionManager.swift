@@ -29,9 +29,9 @@ class CDMotionManager: NSObject {
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let x = data?.userAcceleration.x,
                     x > CDMotionManagerConstants.MinBumpAcceleration {
+                    self?.manager.stopDeviceMotionUpdates()
                     guard let unwrappedSelf = self, let accelerometrUnwrappedData = data?.userAcceleration else { return }
                     self?.delegate?.manager(unwrappedSelf, bumpDetectedWith: accelerometrUnwrappedData, andDateTime: Date())
-                    self?.manager.stopDeviceMotionUpdates()
                 }
             }
         }

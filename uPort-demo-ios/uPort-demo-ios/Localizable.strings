@@ -36,3 +36,7 @@
 "FailProfileMessage" = "Do you want to send request again or exit?";
 "SendRequestTitle" = "Send request";
 "ExitTitle" = "Exit";
+
+//MARK: bump tetxs
+"BumpMessage" = "You should make a bump action to continue!";
+"NoBumpMessage" = "No bump result";

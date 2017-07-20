@@ -100,4 +100,13 @@ class Texts: NSObject {
     class var exitTitle: String {
         return String.localized(key: "ExitTitle", comment: "")
     }
+    
+    //MARK: bump tetxs
+    class var bumpMessage: String {
+        return String.localized(key: "BumpMessage", comment: "")
+    }
+    
+    class var noBumpMessage: String {
+        return String.localized(key: "NoBumpMessage", comment: "")
+    }
 }

@@ -36,7 +36,9 @@ class MPCManager: NSObject {
         super.init()
         peer = MCPeerID(displayName: UIDevice.current.name)
         guard let unwrappedPeer = peer else { return }
-        session = MCSession(peer: unwrappedPeer)
+        session = MCSession(peer: unwrappedPeer,
+                            securityIdentity: nil,
+                            encryptionPreference: .optional)
         session?.delegate = self
         browser = MCNearbyServiceBrowser(peer: unwrappedPeer, serviceType: MPCManagerConstants.ServiceType)
         browser?.delegate = self
