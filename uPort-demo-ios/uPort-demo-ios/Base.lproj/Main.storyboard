@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-732" y="510"/>
         </scene>
-        <!--Attension Popup View Controller-->
+        <!--Attension Popup-->
         <scene sceneID="hci-1a-Vpa">
             <objects>
-                <viewController storyboardIdentifier="AttensionPopupVC" id="BUU-YL-4l3" customClass="AttensionPopupViewController" customModule="uPort_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AttensionPopupVC" id="BUU-YL-4l3" customClass="AttensionPopup" customModule="uPort_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sa9-7G-R7V"/>
                         <viewControllerLayoutGuide type="bottom" id="Rjh-4v-JEK"/>

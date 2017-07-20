@@ -79,4 +79,21 @@ class CDUserDefaults: NSObject {
         userInfo.imageUrl = imageURL
         return userInfo
     }
+    
+    func saveUserInfo(_ userInfo: UserInfo) {
+        userName = userInfo.name
+        userPhone = userInfo.phone
+        userCountry = userInfo.country
+        imageURL = userInfo.imageUrl
+    }
+    
+    func buildUserInfoJSON() -> [String: AnyObject] {
+        guard let userName = userName, let userCountry = userCountry, let userPhone = userPhone, let userURL = imageURL  else { return [:]}
+        return [
+            UserInfoJSONKeys.name: userName as AnyObject,
+            UserInfoJSONKeys.country: userCountry as AnyObject,
+            UserInfoJSONKeys.phone: userPhone as AnyObject,
+            UserInfoJSONKeys.image: [UserInfoJSONKeys.url: userURL as AnyObject] as AnyObject
+        ]
+    }
 }

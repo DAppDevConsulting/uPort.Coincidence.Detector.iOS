@@ -36,7 +36,9 @@ class UserProfileHandler {
                     if let json = response?.data as? JSON {
                         let userInfo = UserInfo()
                         userInfo.parse(json: json)
-                        CDUserDefaults().isLaunchedBefore = true
+                        let userDefaults = CDUserDefaults()
+                        userDefaults.saveUserInfo(userInfo)
+                        userDefaults.isLaunchedBefore = true
                     }
                 } else {
                     self.showFailAlert()

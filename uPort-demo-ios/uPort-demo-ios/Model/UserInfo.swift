@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-fileprivate struct JSONKeys {
+struct UserInfoJSONKeys {
     static let name = "name"
     static let phone = "phone"
     static let country = "country"
@@ -25,20 +25,11 @@ class UserInfo: IParsable {
     
     func parse(json: JSON) {
         if !json.isEmpty {
-            name = json[JSONKeys.name].string
-            phone = json[JSONKeys.phone].string
-            country = json[JSONKeys.country].string
-            let imageJSON = json[JSONKeys.image]
-            imageUrl = imageJSON[JSONKeys.url].string
-            saveDataIntoUserDefaults()
+            name = json[UserInfoJSONKeys.name].string
+            phone = json[UserInfoJSONKeys.phone].string
+            country = json[UserInfoJSONKeys.country].string
+            let imageJSON = json[UserInfoJSONKeys.image]
+            imageUrl = imageJSON[UserInfoJSONKeys.url].string
         }
-    }
-    
-    private func saveDataIntoUserDefaults() {
-        let userDefaults =  CDUserDefaults()
-        userDefaults.userName = self.name
-        userDefaults.userPhone = self.phone
-        userDefaults.userCountry = self.country
-        userDefaults.imageURL = self.imageUrl
     }
 }

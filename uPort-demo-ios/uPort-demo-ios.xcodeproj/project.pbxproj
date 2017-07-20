@@ -44,6 +44,8 @@
 		948120031F1785B6000410DB /* CDMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120021F1785B6000410DB /* CDMotionManager.swift */; };
 		948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120051F178CE8000410DB /* ConnectionsDescriptor.swift */; };
 		948120081F17A0AD000410DB /* Date+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120071F17A0AD000410DB /* Date+Convert.swift */; };
+		949A0A631F20964B002D24F9 /* BumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A621F20964B002D24F9 /* BumpRequest.swift */; };
+		949A0A671F20AA9E002D24F9 /* DataExchangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */; };
 		94B366F51F1652A000E59892 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94B366F41F1652A000E59892 /* Localizable.strings */; };
 		94B366F71F1652F200E59892 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F61F1652F200E59892 /* Texts.swift */; };
 		94B366FA1F16541600E59892 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F91F16541600E59892 /* String+Localized.swift */; };
@@ -119,6 +121,8 @@
 		948120021F1785B6000410DB /* CDMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMotionManager.swift; sourceTree = "<group>"; };
 		948120051F178CE8000410DB /* ConnectionsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDescriptor.swift; sourceTree = "<group>"; };
 		948120071F17A0AD000410DB /* Date+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Convert.swift"; sourceTree = "<group>"; };
+		949A0A621F20964B002D24F9 /* BumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpRequest.swift; sourceTree = "<group>"; };
+		949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExchangeHandler.swift; sourceTree = "<group>"; };
 		94B366F41F1652A000E59892 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		94B366F61F1652F200E59892 /* Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		94B366F91F16541600E59892 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 		945E87A51F1CCAB600929006 /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				949A0A601F209633002D24F9 /* ProfileExchange */,
 				9444C14D1F1D1B67007A6F87 /* Profile */,
 				945E87BA1F1CEF1900929006 /* UportUri */,
 				945E87A61F1CCB0200929006 /* Server.swift */,
@@ -278,6 +283,7 @@
 			children = (
 				9475B19C1F1DF1DF00497EAE /* UportUriHandler.swift */,
 				9475B1A61F1E02D300497EAE /* UserProfileHandler.swift */,
+				949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -288,6 +294,22 @@
 				948120051F178CE8000410DB /* ConnectionsDescriptor.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		949A0A601F209633002D24F9 /* ProfileExchange */ = {
+			isa = PBXGroup;
+			children = (
+				949A0A611F209633002D24F9 /* Bump */,
+			);
+			path = ProfileExchange;
+			sourceTree = "<group>";
+		};
+		949A0A611F209633002D24F9 /* Bump */ = {
+			isa = PBXGroup;
+			children = (
+				949A0A621F20964B002D24F9 /* BumpRequest.swift */,
+			);
+			path = Bump;
 			sourceTree = "<group>";
 		};
 		94B366F01F163D0A00E59892 /* Utils */ = {
@@ -659,6 +681,7 @@
 				940164CF1F1E444C00381EC0 /* UIStoryboard+CdUport.swift in Sources */,
 				94B367041F16618000E59892 /* ICommand.swift in Sources */,
 				9444C14F1F1D1B9B007A6F87 /* UserProfileRequest.swift in Sources */,
+				949A0A671F20AA9E002D24F9 /* DataExchangeHandler.swift in Sources */,
 				948120031F1785B6000410DB /* CDMotionManager.swift in Sources */,
 				945E87B31F1CD60300929006 /* String+Random.swift in Sources */,
 				9475B1A51F1DFD3E00497EAE /* UIImageView+Download.swift in Sources */,
@@ -687,6 +710,7 @@
 				9475B19F1F1DF46400497EAE /* IParsable.swift in Sources */,
 				940164D11F1E514200381EC0 /* AttensionPopup.swift in Sources */,
 				948120081F17A0AD000410DB /* Date+Convert.swift in Sources */,
+				949A0A631F20964B002D24F9 /* BumpRequest.swift in Sources */,
 				9475B1A31F1DFBAC00497EAE /* UserInfo.swift in Sources */,
 				945E87B91F1CE8ED00929006 /* CDSchemaManager.swift in Sources */,
 			);
