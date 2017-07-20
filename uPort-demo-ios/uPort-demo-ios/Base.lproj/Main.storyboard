@@ -396,7 +396,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="tlO-dp-YDI">
                         <barButtonItem key="leftBarButtonItem" title="uPort CD" id="4Vt-Aa-gJz"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="fTo-y6-Ag4">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="fTo-y6-Ag4">
                             <connections>
                                 <segue destination="RJm-c5-bBw" kind="show" id="Ptv-K3-AmJ"/>
                             </connections>

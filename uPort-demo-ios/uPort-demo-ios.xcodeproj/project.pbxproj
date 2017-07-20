@@ -471,7 +471,7 @@
 				TargetAttributes = {
 					9425C0B21F13A21C00A3AF02 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = N3WZEUD6SH;
+						DevelopmentTeam = 58N9WBZRZS;
 						ProvisioningStyle = Automatic;
 					};
 					9425C0C61F13A21D00A3AF02 = {
@@ -871,11 +871,11 @@
 			baseConfigurationReference = B1565708BF84B8B1DFFA1576 /* Pods-uPort-demo-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N3WZEUD6SH;
+				DEVELOPMENT_TEAM = 58N9WBZRZS;
 				INFOPLIST_FILE = "uPort-demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uport.demo.cd1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.uport.demo.cd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -887,11 +887,11 @@
 			baseConfigurationReference = 2696740064962B324862F294 /* Pods-uPort-demo-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N3WZEUD6SH;
+				DEVELOPMENT_TEAM = 58N9WBZRZS;
 				INFOPLIST_FILE = "uPort-demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uport.demo.cd1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.uport.demo.cd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
