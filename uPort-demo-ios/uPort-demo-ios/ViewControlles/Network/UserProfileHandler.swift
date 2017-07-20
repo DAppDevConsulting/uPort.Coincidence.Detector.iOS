@@ -53,9 +53,6 @@ class UserProfileHandler {
         failAlert.addAction(UIAlertAction(title: Texts.sendRequestTitle, style: .default, handler: { action in
             self.requestUserInfo(with: self.profileLocation)
         }))
-        failAlert.addAction(UIAlertAction(title: Texts.exitTitle, style: .cancel, handler: { action in
-            exit(0)
-        }))
         guard let rootVC = appDelegate?.window??.rootViewController else { return }
         rootVC.present(failAlert, animated: true, completion: nil)
     }

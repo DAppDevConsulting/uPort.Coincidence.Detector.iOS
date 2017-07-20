@@ -16,6 +16,6 @@ class AttensionPopup: UIViewController {
     }
 
     @IBAction func okButtonClicked(_ sender: UIButton) {
-        exit(0)
+        //exit(0)
     }
 }

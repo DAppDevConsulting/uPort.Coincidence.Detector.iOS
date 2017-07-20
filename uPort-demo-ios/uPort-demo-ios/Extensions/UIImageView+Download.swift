@@ -11,7 +11,8 @@ import UIKit
 extension UIImageView {
     func downloadFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
-        let activityIndicator = UIActivityIndicatorView(frame: self.frame)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicator.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
         URLSession.shared.dataTask(with: url) { (data, response, error) in
