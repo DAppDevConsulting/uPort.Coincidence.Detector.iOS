@@ -733,11 +733,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pavlo Makarov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hT-bd-UUQ">
-                                <rect key="frame" x="60" y="301.5" width="200" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pavlo Makarov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4hT-bd-UUQ">
+                                <rect key="frame" x="16" y="301.5" width="288" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2f4-wJ-NSE"/>
-                                    <constraint firstAttribute="width" constant="200" id="mqa-ab-YHJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -766,12 +765,14 @@
                         <constraints>
                             <constraint firstItem="uXT-I8-IHY" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="4Oo-lW-fNc"/>
                             <constraint firstItem="qv7-be-rql" firstAttribute="top" secondItem="uXT-I8-IHY" secondAttribute="bottom" constant="8" id="CcT-uV-sdc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4hT-bd-UUQ" secondAttribute="trailing" id="IcC-Bm-cSu"/>
                             <constraint firstItem="4hT-bd-UUQ" firstAttribute="centerY" secondItem="4JR-kR-FrK" secondAttribute="centerY" constant="30" id="KwA-06-G33"/>
                             <constraint firstItem="4hT-bd-UUQ" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="Mm2-LU-eb8"/>
                             <constraint firstItem="4hT-bd-UUQ" firstAttribute="top" secondItem="9Ox-Jz-xc2" secondAttribute="bottom" constant="30" id="OwC-2a-JFa"/>
                             <constraint firstItem="qv7-be-rql" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="gmZ-wx-nCv"/>
                             <constraint firstItem="uXT-I8-IHY" firstAttribute="top" secondItem="4hT-bd-UUQ" secondAttribute="bottom" constant="23" id="h5m-kD-xK9"/>
                             <constraint firstItem="9Ox-Jz-xc2" firstAttribute="centerX" secondItem="4JR-kR-FrK" secondAttribute="centerX" id="h9G-GF-PiU"/>
+                            <constraint firstItem="4hT-bd-UUQ" firstAttribute="leading" secondItem="4JR-kR-FrK" secondAttribute="leadingMargin" id="pCT-3D-6Ho"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="dtm-4O-z1O">
