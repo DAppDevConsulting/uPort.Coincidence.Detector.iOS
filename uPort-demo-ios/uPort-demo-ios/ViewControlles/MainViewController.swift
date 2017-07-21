@@ -111,6 +111,9 @@ class MainViewController: UIViewController {
     @IBAction func startButtonClicked(_ sender: Any) {
         if currentConnectionType == .bump {
             bumpAction()
+        } else {
+            guard let title = currentConnectionType.title() else { return }
+            ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
         }
     }
 }

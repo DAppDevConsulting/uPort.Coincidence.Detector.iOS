@@ -40,3 +40,5 @@
 //MARK: bump tetxs
 "BumpMessage" = "You should make a bump action to continue!";
 "NoBumpMessage" = "No bump result";
+
+"TODOMessage" = "The %@ functionality currently developing";

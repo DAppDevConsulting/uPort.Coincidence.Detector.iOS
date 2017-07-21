@@ -109,4 +109,8 @@ class Texts: NSObject {
     class var noBumpMessage: String {
         return String.localized(key: "NoBumpMessage", comment: "")
     }
+    
+    class var toDoMessage: String {
+        return String.localized(key: "TODOMessage", comment: "")
+    }
 }
