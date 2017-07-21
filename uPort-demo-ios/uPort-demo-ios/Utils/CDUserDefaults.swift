@@ -87,6 +87,13 @@ class CDUserDefaults: NSObject {
         imageURL = userInfo.imageUrl
     }
     
+    func clearUserInfo() {
+        userName = nil
+        userPhone = nil
+        userCountry = nil
+        imageURL = nil
+    }
+    
     func buildUserInfoJSON() -> [String: AnyObject] {
         guard let userName = userName, let userCountry = userCountry, let userPhone = userPhone, let userURL = imageURL  else { return [:]}
         return [

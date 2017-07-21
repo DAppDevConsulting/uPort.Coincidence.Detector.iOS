@@ -113,4 +113,13 @@ class Texts: NSObject {
     class var toDoMessage: String {
         return String.localized(key: "TODOMessage", comment: "")
     }
+    
+    //MARK: profile
+    class var resetIdentityMessage: String {
+        return String.localized(key: "ResetIdentityMessage", comment: "")
+    }
+    
+    class var profileSavedMessage: String {
+        return String.localized(key: "ProfileSavedMessage", comment: "")
+    }
 }

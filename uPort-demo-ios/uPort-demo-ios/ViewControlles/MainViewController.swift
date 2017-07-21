@@ -12,6 +12,8 @@ import CoreMotion
 
 struct MainConstants {
     static let UserInfoPopupId: String = "UserInfoPopupVC"
+    static let NotificationName: String = "UportData"
+    static let NotificationUrlKey: String = "url"
 }
 
 class MainViewController: UIViewController {
@@ -38,6 +40,25 @@ class MainViewController: UIViewController {
         motionManager.delegate = self
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.lookingForPeers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         NotificationCenter.default.addObserver(self, selector: #selector(handleUportData(_:)), name: Notification.Name(rawValue: MainConstants.NotificationName), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func handleUportData(_ notification: Notification) {
+        if let url = notification.userInfo?[MainConstants.NotificationUrlKey] as? URL {
+            let array = url.absoluteString.components(separatedBy: ":/")
+            let profileLocation = array[1]
+            let userInfoHanler = UserProfileHandler(with: self)
+            userInfoHanler.requestUserInfo(with: profileLocation)
+        }
     }
     
     func setupPickerView() {
@@ -170,5 +191,11 @@ extension MainViewController: DataExchangeHandlerDelegate {
                 ShowBaseAlertCommand().execute(with: Texts.noBumpMessage)
             }
         }
+    }
+}
+
+extension MainViewController: UserProfileHandlerDelegate {
+    func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo) {
+        ShowBaseAlertCommand().execute(with: Texts.profileSavedMessage)
     }
 }

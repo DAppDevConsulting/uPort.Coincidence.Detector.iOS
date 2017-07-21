@@ -42,3 +42,7 @@
 "NoBumpMessage" = "No bump result";
 
 "TODOMessage" = "The %@ functionality currently developing";
+
+//MARK: profile
+"ResetIdentityMessage" = "Do you really want to reset your identity?";
+"ProfileSavedMessage" = "User profile saved successfully!";

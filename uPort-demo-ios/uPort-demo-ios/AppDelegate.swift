@@ -14,21 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mpcManager: MPCManager!
+    var uportUriHandler: UportUriHandler?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         mpcManager = MPCManager()
+        uportUriHandler = UportUriHandler(with: self)
         if !CDUserDefaults().isLaunchedBefore {
-            let uportUriHandler = UportUriHandler(with: self)
-            uportUriHandler.requestUportURi()
+            uportUriHandler?.requestUportURi()
         }
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let array = url.absoluteString.components(separatedBy: ":/")
-        let profileLocation = array[1]
-        let userInfoHanler = UserProfileHandler(with: nil)
-        userInfoHanler.requestUserInfo(with: profileLocation)
+        let userInfo = [MainConstants.NotificationUrlKey: url]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: MainConstants.NotificationName), object: nil, userInfo: userInfo)
         return true
     }
     

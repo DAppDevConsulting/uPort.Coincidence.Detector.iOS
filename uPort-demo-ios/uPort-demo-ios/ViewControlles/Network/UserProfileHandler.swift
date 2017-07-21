@@ -11,7 +11,6 @@ import SwiftyJSON
 
 protocol UserProfileHandlerDelegate: class {
     func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo)
-    func handler(_ uportHandler: UserProfileHandler, didReceiveFail result: Bool)
 }
 
 class UserProfileHandler {
@@ -39,6 +38,7 @@ class UserProfileHandler {
                         let userDefaults = CDUserDefaults()
                         userDefaults.saveUserInfo(userInfo)
                         userDefaults.isLaunchedBefore = true
+                        self.delegate?.handler(self, didReceive: userInfo)
                     }
                 } else {
                     self.showFailAlert()
