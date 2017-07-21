@@ -23,9 +23,10 @@ class DataExchangeHandler {
         delegate = callbackResponder
     }
     
-    func bumpRequest() {
+    func bumpRequest(isTransmitModeOn: Bool) {
         spinnerProvider.startSpinner()
         let request = BumpRequest()
+        request.isTransmitModeOn = isTransmitModeOn
         Server.sharedInstance.sendRequest(request: request, responseHandler: { response in
             self.spinnerProvider.stopSpinner()
             if let success = response?.isSuccess {

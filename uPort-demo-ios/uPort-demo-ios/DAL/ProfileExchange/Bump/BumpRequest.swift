@@ -11,6 +11,8 @@ import Alamofire
 
 class BumpRequest: IRequest {
     
+    var isTransmitModeOn = true
+    
     func method() -> HTTPMethod {
         return .post
     }
@@ -24,8 +26,11 @@ class BumpRequest: IRequest {
     }
     
     func params() -> [String : AnyObject]? {
-        let data = CDUserDefaults().buildUserInfoJSON()
-        return ["profile":  data as AnyObject]
+        if isTransmitModeOn {
+            let data = CDUserDefaults().buildUserInfoJSON()
+            return ["profile":  data as AnyObject]
+        }
+        return nil
     }
     
     func encoding() -> ParameterEncoding {

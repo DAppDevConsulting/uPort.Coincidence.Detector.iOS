@@ -179,10 +179,8 @@ extension MainViewController: ConnectionsTypePickerDelegate {
 
 extension MainViewController: CDMotionManagerDelegate {
     func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
-        if transitModeSwitch.isOn {
-            let dataExchangeHandler = DataExchangeHandler(with: self)
-            dataExchangeHandler.bumpRequest()
-        }
+        let dataExchangeHandler = DataExchangeHandler(with: self)
+        dataExchangeHandler.bumpRequest(isTransmitModeOn: transitModeSwitch.isOn)
     }
 }
 
