@@ -122,4 +122,8 @@ class Texts: NSObject {
     class var profileSavedMessage: String {
         return String.localized(key: "ProfileSavedMessage", comment: "")
     }
+    
+    class var confirmAttestatinMessage: String {
+        return String.localized(key: "ConfirmAttestatinMessage", comment: "")
+    }
 }

@@ -131,7 +131,15 @@ class MainViewController: UIViewController {
     
     @IBAction func startButtonClicked(_ sender: Any) {
         if currentConnectionType == .bump {
-            bumpAction()
+            let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                self.bumpAction()
+            }
+            
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+            
         } else {
             guard let title = currentConnectionType.title() else { return }
             ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
