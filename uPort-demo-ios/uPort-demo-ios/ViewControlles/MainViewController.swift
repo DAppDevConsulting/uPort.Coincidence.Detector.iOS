@@ -130,15 +130,20 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
+        //TODO: chnage logic to what should I do settings
         if currentConnectionType == .bump {
-            let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
-            
-            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
-                self.bumpAction()
+            if CDUserDefaults().askMeAlways {
+                let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
+                
+                let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                    self.bumpAction()
+                }
+                
+                alert.addAction(confirmAction)
+                self.present(alert, animated: true, completion: nil)
+
             }
             
-            alert.addAction(confirmAction)
-            self.present(alert, animated: true, completion: nil)
             
         } else {
             guard let title = currentConnectionType.title() else { return }

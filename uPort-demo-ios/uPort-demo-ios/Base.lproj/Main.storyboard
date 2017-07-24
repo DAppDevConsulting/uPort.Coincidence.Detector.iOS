@@ -466,8 +466,11 @@
                                                     <constraint firstAttribute="height" constant="1" id="QwD-is-MwT"/>
                                                 </constraints>
                                             </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Bn-KJ-nqU">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Bn-KJ-nqU">
                                                 <rect key="frame" x="263" y="4" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="askMeAlwaysValueChanged:" destination="RJm-c5-bBw" eventType="valueChanged" id="o2F-WU-vlC"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.93333333330000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -514,7 +517,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="7vV-wV-dwI"/>
                                                 </constraints>
                                             </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2w-fj-3RL">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m2w-fj-3RL">
                                                 <rect key="frame" x="263" y="4" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -569,7 +572,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="viL-lm-aLT"/>
                                                 </constraints>
                                             </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-Hn-LPq">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-Hn-LPq">
                                                 <rect key="frame" x="263" y="5" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -607,7 +610,7 @@
                                     <constraint firstItem="yox-rQ-xHa" firstAttribute="top" secondItem="Zui-tg-68I" secondAttribute="bottom" id="wbA-3x-Xg4"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm7-9K-7Fw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My uPort" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm7-9K-7Fw">
                                 <rect key="frame" x="16" y="407" width="288" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="6oS-0G-Zwc"/>
@@ -701,6 +704,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="arrowButton" destination="gVl-Oj-aJz" id="TRW-o2-zhz"/>
+                        <outlet property="askMeAlwaysSwitch" destination="8Bn-KJ-nqU" id="aaD-z7-7Gd"/>
+                        <outlet property="exchangeSwitch" destination="m2w-fj-3RL" id="UBE-sA-lxE"/>
+                        <outlet property="fromKnownSwitch" destination="VEP-Hn-LPq" id="lX1-tH-Vye"/>
                         <outlet property="profileView" destination="DBU-OZ-oeh" id="9IN-UI-asJ"/>
                         <outlet property="userNameLabel" destination="B0t-GB-vqv" id="XaW-yE-NTz"/>
                     </connections>
@@ -709,7 +715,7 @@
             </objects>
             <point key="canvasLocation" x="804.375" y="508.0985915492958"/>
         </scene>
-        <!--Profile-->
+        <!--My uPort-->
         <scene sceneID="u0a-So-1cB">
             <objects>
                 <viewController storyboardIdentifier="ProfileVC" id="zXn-vU-2zn" customClass="ProfileViewController" customModule="uPort_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -789,7 +795,7 @@
                             <constraint firstItem="o24-Nz-18m" firstAttribute="top" secondItem="K9L-d6-a7v" secondAttribute="bottom" constant="16" id="szA-hz-AKU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="dtm-4O-z1O">
+                    <navigationItem key="navigationItem" title="My uPort" id="dtm-4O-z1O">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Mfz-gc-kAp"/>
                         <barButtonItem key="rightBarButtonItem" title="uPort CD" id="xed-Kc-cBl"/>
                     </navigationItem>

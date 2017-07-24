@@ -11,6 +11,7 @@ import UIKit
 class CDUserDefaults: NSObject {
     
     private let keyFirstLaunch = "FirstLaunch"
+    private let keyAskMeAlways = "AskMeAlways"
     private let keyName = "Name"
     private let keyPhone = "Phone"
     private let keyCountry = "Country"
@@ -26,6 +27,17 @@ class CDUserDefaults: NSObject {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: keyFirstLaunch)
+            synchronize()
+        }
+    }
+    
+    var askMeAlways: Bool {
+        get {
+            UserDefaults.standard.register(defaults: [keyAskMeAlways: true])
+            return (UserDefaults.standard.bool(forKey: keyAskMeAlways))
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: keyAskMeAlways)
             synchronize()
         }
     }
