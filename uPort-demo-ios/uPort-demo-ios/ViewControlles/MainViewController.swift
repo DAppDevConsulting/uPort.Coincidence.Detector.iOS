@@ -134,6 +134,17 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func drawTriangle() {
+        let alert = UIAlertController(title: "", message: Texts.drawTriangleMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let confirmAction: UIAlertAction = UIAlertAction(title: Texts.okTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.motionManager.handDance()
+        }
+        
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func distanceSliderValueChanged(_ sender: UISlider) {
         let value = Int(sender.value)
         distanceLabel.text = "\(value) \(Texts.measureTitle)"
@@ -155,8 +166,7 @@ class MainViewController: UIViewController {
                     case .bump:
                         self?.bumpAction()
                     case .handDance:
-                        guard let title = connectionType.title() else { return }
-                        ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
+                        self?.drawTriangle()
                     default:
                         guard let title = connectionType.title() else { return }
                         ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
@@ -198,6 +208,14 @@ extension MainViewController: ConnectionsTypePickerDelegate {
 }
 
 extension MainViewController: CDMotionManagerDelegate {
+    
+    func manager(_ manager: CDMotionManager, handDanceWith deviceMotionData: [CMDeviceMotion], andDateTime date: Date) {
+        //TOOD:
+        for motion in deviceMotionData {
+            print(motion.userAcceleration)
+        }
+    }
+
     func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
         let dataExchangeHandler = DataExchangeHandler(with: self)
         dataExchangeHandler.bumpRequest(isTransmitModeOn: transitModeSwitch.isOn)

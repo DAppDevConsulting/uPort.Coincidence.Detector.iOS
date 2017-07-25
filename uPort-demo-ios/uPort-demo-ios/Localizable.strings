@@ -41,6 +41,8 @@
 "BumpMessage" = "You should make a bump action to continue!";
 "NoBumpMessage" = "No bump result";
 
+"DrawTriangleMessage" = "You should draw triangle to continue!";
+
 "TODOMessage" = "The %@ functionality currently developing";
 
 //MARK: profile

@@ -114,6 +114,11 @@ class Texts: NSObject {
         return String.localized(key: "TODOMessage", comment: "")
     }
     
+    //MARK: hand dance
+    class var drawTriangleMessage: String {
+        return String.localized(key: "DrawTriangleMessage", comment: "")
+    }
+    
     //MARK: profile
     class var resetIdentityMessage: String {
         return String.localized(key: "ResetIdentityMessage", comment: "")
