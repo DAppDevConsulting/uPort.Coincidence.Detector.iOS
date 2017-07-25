@@ -44,6 +44,7 @@
 		948120031F1785B6000410DB /* CDMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120021F1785B6000410DB /* CDMotionManager.swift */; };
 		948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120051F178CE8000410DB /* ConnectionsDescriptor.swift */; };
 		948120081F17A0AD000410DB /* Date+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948120071F17A0AD000410DB /* Date+Convert.swift */; };
+		948DDC301F272F3900CF2AA3 /* HandDanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDC2F1F272F3900CF2AA3 /* HandDanceRequest.swift */; };
 		949A0A631F20964B002D24F9 /* BumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A621F20964B002D24F9 /* BumpRequest.swift */; };
 		949A0A671F20AA9E002D24F9 /* DataExchangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */; };
 		949A0A691F20C915002D24F9 /* UserInfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A681F20C915002D24F9 /* UserInfoPopup.swift */; };
@@ -122,6 +123,7 @@
 		948120021F1785B6000410DB /* CDMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMotionManager.swift; sourceTree = "<group>"; };
 		948120051F178CE8000410DB /* ConnectionsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDescriptor.swift; sourceTree = "<group>"; };
 		948120071F17A0AD000410DB /* Date+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Convert.swift"; sourceTree = "<group>"; };
+		948DDC2F1F272F3900CF2AA3 /* HandDanceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandDanceRequest.swift; sourceTree = "<group>"; };
 		949A0A621F20964B002D24F9 /* BumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpRequest.swift; sourceTree = "<group>"; };
 		949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExchangeHandler.swift; sourceTree = "<group>"; };
 		949A0A681F20C915002D24F9 /* UserInfoPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoPopup.swift; sourceTree = "<group>"; };
@@ -298,9 +300,18 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		948DDC2E1F272E7100CF2AA3 /* HandDance */ = {
+			isa = PBXGroup;
+			children = (
+				948DDC2F1F272F3900CF2AA3 /* HandDanceRequest.swift */,
+			);
+			path = HandDance;
+			sourceTree = "<group>";
+		};
 		949A0A601F209633002D24F9 /* ProfileExchange */ = {
 			isa = PBXGroup;
 			children = (
+				948DDC2E1F272E7100CF2AA3 /* HandDance */,
 				949A0A611F209633002D24F9 /* Bump */,
 			);
 			path = ProfileExchange;
@@ -714,6 +725,7 @@
 				9475B19F1F1DF46400497EAE /* IParsable.swift in Sources */,
 				940164D11F1E514200381EC0 /* AttensionPopup.swift in Sources */,
 				948120081F17A0AD000410DB /* Date+Convert.swift in Sources */,
+				948DDC301F272F3900CF2AA3 /* HandDanceRequest.swift in Sources */,
 				949A0A631F20964B002D24F9 /* BumpRequest.swift in Sources */,
 				9475B1A31F1DFBAC00497EAE /* UserInfo.swift in Sources */,
 				945E87B91F1CE8ED00929006 /* CDSchemaManager.swift in Sources */,
