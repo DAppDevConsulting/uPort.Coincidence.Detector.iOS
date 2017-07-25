@@ -105,6 +105,24 @@ class MainViewController: UIViewController {
         }
     }
     
+    func askMeAlways(completion: @escaping (Bool) -> Void) {
+        if CDUserDefaults().askMeAlways {
+            let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                completion(true)
+            }
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: Texts.noTitle, style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+
+        } else {
+            completion(true)
+        }
+    }
+    
     func bumpAction() {
         let alert = UIAlertController(title: "", message: Texts.bumpMessage, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -130,25 +148,22 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
-        //TODO: chnage logic to what should I do settings
-        if currentConnectionType == .bump {
-            if CDUserDefaults().askMeAlways {
-                let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
-                
-                let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
-                    self.bumpAction()
+        askMeAlways(completion: { [weak self] result in
+            if result {
+                if let connectionType = self?.currentConnectionType {
+                    switch connectionType {
+                    case .bump:
+                        self?.bumpAction()
+                    case .handDance:
+                        guard let title = connectionType.title() else { return }
+                        ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
+                    default:
+                        guard let title = connectionType.title() else { return }
+                        ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
+                    }
                 }
-                
-                alert.addAction(confirmAction)
-                self.present(alert, animated: true, completion: nil)
-
             }
-            
-            
-        } else {
-            guard let title = currentConnectionType.title() else { return }
-            ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
-        }
+        })
     }
 }
 

@@ -47,4 +47,4 @@
 "ResetIdentityMessage" = "Do you really want to reset your identity?";
 "ProfileSavedMessage" = "User profile saved successfully!";
 
-"ConfirmAttestatinMessage" = "Please agree to exchange attestations, according to the \"what should I do \" settings";
+"ConfirmAttestatinMessage" = "Proseed with attestation exchange?";
