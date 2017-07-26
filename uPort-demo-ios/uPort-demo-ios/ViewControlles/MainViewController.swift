@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
         return ConnectionsTypePickerConfigurator(with: self)
     }()
     
+    let motionrecognizer = MotionRecognizer.shared
     let motionManager = CDMotionManager()
     var currentConnectionType: ConnectionsDescriptor!
     
@@ -210,10 +211,15 @@ extension MainViewController: ConnectionsTypePickerDelegate {
 extension MainViewController: CDMotionManagerDelegate {
     
     func manager(_ manager: CDMotionManager, handDanceWith deviceMotionData: [CMDeviceMotion], andDateTime date: Date) {
-        //TOOD:
+        var drawnPoints = [StrokePoint]()
         for motion in deviceMotionData {
-            print(motion.userAcceleration)
+            let ass = motion.userAcceleration
+            let strokePoint = StrokePoint(point: CGPoint(x: ass.x, y: ass.y))
+            drawnPoints.append(strokePoint)
         }
+        motionrecognizer.delegate = self
+        motionrecognizer.createStrokeRecognizer(points: drawnPoints)
+
     }
 
     func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
@@ -241,5 +247,17 @@ extension MainViewController: DataExchangeHandlerDelegate {
 extension MainViewController: UserProfileHandlerDelegate {
     func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo) {
         ShowBaseAlertCommand().execute(with: Texts.profileSavedMessage)
+    }
+}
+
+extension MainViewController: MotionRecognizerDelegate {
+    
+    func recognizer(_ manager: MotionRecognizer, templateFoundWithName name: String) {
+        let dataExchangeHandler = DataExchangeHandler(with: self)
+        dataExchangeHandler.handDanceRequest(isTransmitModeOn: transitModeSwitch.isOn, andGesture: name)
+    }
+    
+    func recognizer(_ manager: MotionRecognizer, templateNotFound text: String) {
+        ShowBaseAlertCommand().execute(with: text)
     }
 }
