@@ -106,8 +106,8 @@ class Texts: NSObject {
         return String.localized(key: "BumpMessage", comment: "")
     }
     
-    class var noBumpMessage: String {
-        return String.localized(key: "NoBumpMessage", comment: "")
+    class var noResultMessage: String {
+        return String.localized(key: "NoResultMessage", comment: "")
     }
     
     class var toDoMessage: String {

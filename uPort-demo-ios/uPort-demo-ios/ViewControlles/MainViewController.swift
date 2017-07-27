@@ -237,7 +237,7 @@ extension MainViewController: DataExchangeHandlerDelegate {
             if result.count > 0 {
                 showUserInfoPopup(withUserInfo: result[0])
             } else {
-                ShowBaseAlertCommand().execute(with: Texts.noBumpMessage)
+                ShowBaseAlertCommand().execute(with: Texts.noResultMessage)
             }
         }
     }
