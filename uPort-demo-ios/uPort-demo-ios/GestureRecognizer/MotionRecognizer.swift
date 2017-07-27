@@ -41,26 +41,11 @@ class MotionRecognizer {
                 print("[FOUND] Template found is \(unwrappedTemplate.name) with distance: \(distance!)")
                 delegate?.recognizer(self, templateFoundWithName: unwrappedTemplate.name)
             } else {
-                delegate?.recognizer(self, templateNotFound: "I cannot recognize this gesture. So sad my dear...")
+                delegate?.recognizer(self, templateNotFound: "Сannot recognize this gesture. Please try again!")
             }
-            
-//            var title: String = ""
-//            var message: String = ""
-//            if template != nil {
-//                title = "Gesture Recognized!"
-//                message = "Let me try...is it a \(template!.name.uppercased())?"
-//                print("[FOUND] Template found is \(template!.name) with distance: \(distance!)")
-//                delegate?.manager(self, templateFoundWithName: template!.name)
-//            } else {
-//                print("[FAILED] Template not found")
-//                title = "Ops...!"
-//                message = "I cannot recognize this gesture. So sad my dear..."
-//            }
-//            ShowBaseAlertCommand().execute(with: message)
         } catch (let error as NSError) {
             print("[FAILED] Error: \(error.localizedDescription)")
-            delegate?.recognizer(self, templateNotFound: error.localizedDescription)
-           //ShowBaseAlertCommand().execute(with: error.localizedDescription)
+            delegate?.recognizer(self, templateNotFound: "Сannot recognize this gesture. Please try again!")
         }
     }
     

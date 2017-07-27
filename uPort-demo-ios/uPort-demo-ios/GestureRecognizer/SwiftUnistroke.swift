@@ -45,13 +45,13 @@ public class SwiftUnistroke {
      
      - parameter templates:     an arrat of SwiftUnistrokeTemplate objects
      - parameter useProtractor: use protractor method to compare angles (faster but less accurate)
-     - parameter minThreshold:  minimum accepted threshold to return found match (a value between 0 and 1; a 0.70 threshold is the default choice)
+     - parameter minThreshold:  minimum accepted threshold to return found match (a value between 0 and 1; a 0.50 threshold is the default choice)
      
      - throws: throws an exception if templates aray is empty, passed input stroke points are not enough or match is not found.
      
      - returns: best match
      */
-    public func recognizeIn(templates: [SwiftUnistrokeTemplate]!, useProtractor: Bool = false, minThreshold: Double = 0.70) throws -> (template: SwiftUnistrokeTemplate?, distance: Double?) {
+    public func recognizeIn(templates: [SwiftUnistrokeTemplate]!, useProtractor: Bool = false, minThreshold: Double = 0.50) throws -> (template: SwiftUnistrokeTemplate?, distance: Double?) {
         if templates.count == 0 || points.count == 0 {
             throw StrokeErrors.EmptyTemplates
         }
