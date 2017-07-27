@@ -49,6 +49,7 @@
 		949A0A631F20964B002D24F9 /* BumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A621F20964B002D24F9 /* BumpRequest.swift */; };
 		949A0A671F20AA9E002D24F9 /* DataExchangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */; };
 		949A0A691F20C915002D24F9 /* UserInfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A0A681F20C915002D24F9 /* UserInfoPopup.swift */; };
+		949DAE481F2A195200DFA1B1 /* InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DAE471F2A195200DFA1B1 /* InfoPopup.swift */; };
 		94B366F51F1652A000E59892 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94B366F41F1652A000E59892 /* Localizable.strings */; };
 		94B366F71F1652F200E59892 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F61F1652F200E59892 /* Texts.swift */; };
 		94B366FA1F16541600E59892 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B366F91F16541600E59892 /* String+Localized.swift */; };
@@ -131,6 +132,7 @@
 		949A0A621F20964B002D24F9 /* BumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpRequest.swift; sourceTree = "<group>"; };
 		949A0A661F20AA9E002D24F9 /* DataExchangeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExchangeHandler.swift; sourceTree = "<group>"; };
 		949A0A681F20C915002D24F9 /* UserInfoPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoPopup.swift; sourceTree = "<group>"; };
+		949DAE471F2A195200DFA1B1 /* InfoPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPopup.swift; sourceTree = "<group>"; };
 		94B366F41F1652A000E59892 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		94B366F61F1652F200E59892 /* Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		94B366F91F16541600E59892 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				9475B1AA1F1E29B600497EAE /* ProfileViewController.swift */,
 				940164D01F1E514200381EC0 /* AttensionPopup.swift */,
 				949A0A681F20C915002D24F9 /* UserInfoPopup.swift */,
+				949DAE471F2A195200DFA1B1 /* InfoPopup.swift */,
 			);
 			path = ViewControlles;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				948120061F178CE8000410DB /* ConnectionsDescriptor.swift in Sources */,
 				945E87AF1F1CCD2200929006 /* Reachabiliy.swift in Sources */,
 				940164D41F1E5E1D00381EC0 /* SpinnerProvider.swift in Sources */,
+				949DAE481F2A195200DFA1B1 /* InfoPopup.swift in Sources */,
 				945E87AB1F1CCB6100929006 /* IResponse.swift in Sources */,
 				9444C1511F1D1CC9007A6F87 /* UserProfileResponse.swift in Sources */,
 				9475B1AD1F1E311E00497EAE /* UIImageView+RoundCorners.swift in Sources */,

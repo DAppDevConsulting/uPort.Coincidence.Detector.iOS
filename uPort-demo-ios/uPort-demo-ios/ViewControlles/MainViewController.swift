@@ -12,6 +12,7 @@ import CoreMotion
 
 struct MainConstants {
     static let UserInfoPopupId: String = "UserInfoPopupVC"
+    static let InfoPopupId: String = "InfoPopupVC"
     static let NotificationName: String = "UportData"
     static let NotificationUrlKey: String = "url"
 }
@@ -106,6 +107,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    func showDrawTrianglePopup() {
+        if let popupVC = UIStoryboard.main().instantiateViewController(withIdentifier: MainConstants.InfoPopupId) as? InfoPopup {
+            popupVC.delegate = self
+            popupVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            popupVC.modalTransitionStyle = .crossDissolve
+            present(popupVC, animated: true, completion: nil)
+        }
+    }
+    
     func askMeAlways(completion: @escaping (Bool) -> Void) {
         if CDUserDefaults().askMeAlways {
             let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
@@ -135,16 +145,16 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func drawTriangle() {
-        let alert = UIAlertController(title: "", message: Texts.drawTriangleMessage, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let confirmAction: UIAlertAction = UIAlertAction(title: Texts.okTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
-            self.motionManager.handDance()
-        }
-        
-        alert.addAction(confirmAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+//    func drawTriangle() {
+//        let alert = UIAlertController(title: "", message: Texts.drawTriangleMessage, preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        let confirmAction: UIAlertAction = UIAlertAction(title: Texts.okTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+//            self.motionManager.handDance()
+//        }
+//        
+//        alert.addAction(confirmAction)
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     @IBAction func distanceSliderValueChanged(_ sender: UISlider) {
         let value = Int(sender.value)
@@ -167,7 +177,7 @@ class MainViewController: UIViewController {
                     case .bump:
                         self?.bumpAction()
                     case .handDance:
-                        self?.drawTriangle()
+                        self?.showDrawTrianglePopup()
                     default:
                         guard let title = connectionType.title() else { return }
                         ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
@@ -259,5 +269,11 @@ extension MainViewController: MotionRecognizerDelegate {
     
     func recognizer(_ manager: MotionRecognizer, templateNotFound text: String) {
         ShowBaseAlertCommand().execute(with: text)
+    }
+}
+
+extension MainViewController: InfoPopupDelegate {
+    func popup(_ popup: InfoPopup, buttonClicked clicked: Bool) {
+        motionManager.handDance()
     }
 }
