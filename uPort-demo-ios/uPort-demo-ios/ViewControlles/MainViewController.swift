@@ -145,17 +145,6 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-//    func drawTriangle() {
-//        let alert = UIAlertController(title: "", message: Texts.drawTriangleMessage, preferredStyle: UIAlertControllerStyle.alert)
-//        
-//        let confirmAction: UIAlertAction = UIAlertAction(title: Texts.okTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
-//            self.motionManager.handDance()
-//        }
-//        
-//        alert.addAction(confirmAction)
-//        self.present(alert, animated: true, completion: nil)
-//    }
-    
     @IBAction func distanceSliderValueChanged(_ sender: UISlider) {
         let value = Int(sender.value)
         distanceLabel.text = "\(value) \(Texts.measureTitle)"

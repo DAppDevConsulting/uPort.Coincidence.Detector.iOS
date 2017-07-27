@@ -17,10 +17,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var arrowButton: UIButton!
-    
     @IBOutlet weak var askMeAlwaysSwitch: UISwitch!
     @IBOutlet weak var exchangeSwitch: UISwitch!
     @IBOutlet weak var fromKnownSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameLabel.text = CDUserDefaults().userName
@@ -39,6 +39,7 @@ class SettingsViewController: UIViewController {
             navigationController?.pushViewController(profileVC, animated: true)
         }
     }
+    
     @IBAction func askMeAlwaysValueChanged(_ sender: UISwitch) {
         exchangeSwitch.isOn = !sender.isOn
         CDUserDefaults().askMeAlways = sender.isOn
