@@ -23,9 +23,8 @@ class DataExchangeHandler {
         delegate = callbackResponder
     }
     
-    func bumpRequest() {
+    private func sendRequest(request: IRequest) {
         spinnerProvider.startSpinner()
-        let request = BumpRequest()
         Server.sharedInstance.sendRequest(request: request, responseHandler: { response in
             self.spinnerProvider.stopSpinner()
             if let success = response?.isSuccess {
@@ -44,8 +43,18 @@ class DataExchangeHandler {
                     self.delegate?.handler(self, didReceiveFail: true)
                 }
             }
-            
         })
     }
-
+    
+    func bumpRequest(isTransmitModeOn: Bool) {
+        let request = BumpRequest()
+        request.isTransmitModeOn = isTransmitModeOn
+        sendRequest(request: request)
+    }
+    
+    func handDanceRequest(isTransmitModeOn: Bool, andGesture gesture: String) {
+        let request = HandDanceRequest(gesture: gesture)
+        request.isTransmitModeOn = isTransmitModeOn
+        sendRequest(request: request)
+    }
 }

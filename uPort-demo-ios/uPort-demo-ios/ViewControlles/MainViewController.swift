@@ -12,6 +12,7 @@ import CoreMotion
 
 struct MainConstants {
     static let UserInfoPopupId: String = "UserInfoPopupVC"
+    static let InfoPopupId: String = "InfoPopupVC"
     static let NotificationName: String = "UportData"
     static let NotificationUrlKey: String = "url"
 }
@@ -30,6 +31,7 @@ class MainViewController: UIViewController {
         return ConnectionsTypePickerConfigurator(with: self)
     }()
     
+    let motionrecognizer = MotionRecognizer.shared
     let motionManager = CDMotionManager()
     var currentConnectionType: ConnectionsDescriptor!
     
@@ -105,6 +107,33 @@ class MainViewController: UIViewController {
         }
     }
     
+    func showDrawTrianglePopup() {
+        if let popupVC = UIStoryboard.main().instantiateViewController(withIdentifier: MainConstants.InfoPopupId) as? InfoPopup {
+            popupVC.delegate = self
+            popupVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            popupVC.modalTransitionStyle = .crossDissolve
+            present(popupVC, animated: true, completion: nil)
+        }
+    }
+    
+    func askMeAlways(completion: @escaping (Bool) -> Void) {
+        if CDUserDefaults().askMeAlways {
+            let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                completion(true)
+            }
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: Texts.noTitle, style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+
+        } else {
+            completion(true)
+        }
+    }
+    
     func bumpAction() {
         let alert = UIAlertController(title: "", message: Texts.bumpMessage, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -130,20 +159,21 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
-        if currentConnectionType == .bump {
-            let alert = UIAlertController(title: "", message: Texts.confirmAttestatinMessage, preferredStyle: UIAlertControllerStyle.alert)
-            
-            let confirmAction: UIAlertAction = UIAlertAction(title: Texts.yesTitle, style: UIAlertActionStyle.default) { (alertAction) -> Void in
-                self.bumpAction()
+        askMeAlways(completion: { [weak self] result in
+            if result {
+                if let connectionType = self?.currentConnectionType {
+                    switch connectionType {
+                    case .bump:
+                        self?.bumpAction()
+                    case .handDance:
+                        self?.showDrawTrianglePopup()
+                    default:
+                        guard let title = connectionType.title() else { return }
+                        ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
+                    }
+                }
             }
-            
-            alert.addAction(confirmAction)
-            self.present(alert, animated: true, completion: nil)
-            
-        } else {
-            guard let title = currentConnectionType.title() else { return }
-            ShowBaseAlertCommand().execute(with: String.init(format: Texts.toDoMessage, title))
-        }
+        })
     }
 }
 
@@ -178,11 +208,22 @@ extension MainViewController: ConnectionsTypePickerDelegate {
 }
 
 extension MainViewController: CDMotionManagerDelegate {
-    func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
-        if transitModeSwitch.isOn {
-            let dataExchangeHandler = DataExchangeHandler(with: self)
-            dataExchangeHandler.bumpRequest()
+    
+    func manager(_ manager: CDMotionManager, handDanceWith deviceMotionData: [CMDeviceMotion], andDateTime date: Date) {
+        var drawnPoints = [StrokePoint]()
+        for motion in deviceMotionData {
+            let ass = motion.userAcceleration
+            let strokePoint = StrokePoint(point: CGPoint(x: ass.x, y: ass.y))
+            drawnPoints.append(strokePoint)
         }
+        motionrecognizer.delegate = self
+        motionrecognizer.createStrokeRecognizer(points: drawnPoints)
+
+    }
+
+    func manager(_ manager: CDMotionManager, bumpDetectedWith accelerometerData: CMAcceleration, andDateTime date: Date) {
+        let dataExchangeHandler = DataExchangeHandler(with: self)
+        dataExchangeHandler.bumpRequest(isTransmitModeOn: transitModeSwitch.isOn)
     }
 }
 
@@ -196,7 +237,7 @@ extension MainViewController: DataExchangeHandlerDelegate {
             if result.count > 0 {
                 showUserInfoPopup(withUserInfo: result[0])
             } else {
-                ShowBaseAlertCommand().execute(with: Texts.noBumpMessage)
+                ShowBaseAlertCommand().execute(with: Texts.noResultMessage)
             }
         }
     }
@@ -205,5 +246,23 @@ extension MainViewController: DataExchangeHandlerDelegate {
 extension MainViewController: UserProfileHandlerDelegate {
     func handler(_ uportHandler: UserProfileHandler, didReceive result: UserInfo) {
         ShowBaseAlertCommand().execute(with: Texts.profileSavedMessage)
+    }
+}
+
+extension MainViewController: MotionRecognizerDelegate {
+    
+    func recognizer(_ manager: MotionRecognizer, templateFoundWithName name: String) {
+        let dataExchangeHandler = DataExchangeHandler(with: self)
+        dataExchangeHandler.handDanceRequest(isTransmitModeOn: transitModeSwitch.isOn, andGesture: name)
+    }
+    
+    func recognizer(_ manager: MotionRecognizer, templateNotFound text: String) {
+        ShowBaseAlertCommand().execute(with: text)
+    }
+}
+
+extension MainViewController: InfoPopupDelegate {
+    func popup(_ popup: InfoPopup, buttonClicked clicked: Bool) {
+        motionManager.handDance()
     }
 }

@@ -106,12 +106,17 @@ class Texts: NSObject {
         return String.localized(key: "BumpMessage", comment: "")
     }
     
-    class var noBumpMessage: String {
-        return String.localized(key: "NoBumpMessage", comment: "")
+    class var noResultMessage: String {
+        return String.localized(key: "NoResultMessage", comment: "")
     }
     
     class var toDoMessage: String {
         return String.localized(key: "TODOMessage", comment: "")
+    }
+    
+    //MARK: hand dance
+    class var drawTriangleMessage: String {
+        return String.localized(key: "DrawTriangleMessage", comment: "")
     }
     
     //MARK: profile

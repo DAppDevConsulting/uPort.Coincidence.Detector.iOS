@@ -39,7 +39,9 @@
 
 //MARK: bump tetxs
 "BumpMessage" = "You should make a bump action to continue!";
-"NoBumpMessage" = "No bump result";
+"NoResultMessage" = "No connection result";
+
+"DrawTriangleMessage" = "You should draw triangle to continue!";
 
 "TODOMessage" = "The %@ functionality currently developing";
 
@@ -47,4 +49,4 @@
 "ResetIdentityMessage" = "Do you really want to reset your identity?";
 "ProfileSavedMessage" = "User profile saved successfully!";
 
-"ConfirmAttestatinMessage" = "Please agree to exchange attestations, according to the \"what should I do \" settings";
+"ConfirmAttestatinMessage" = "Proсeed with attestation exchange?";
